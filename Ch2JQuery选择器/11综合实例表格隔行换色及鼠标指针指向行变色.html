@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		table{border:0;border-collapse: collapse;}
+		td{font:normal 12px/17px Arial;padding:2px;width: 100px;}
+		th{
+			font:bold 12px/17px Arial;
+			text-align: left;
+			padding: 4px;
+			border-bottom: 1px solid #333;
+		}
+		.odd{background-color: #cef;}
+		.even{background-color: #ffc;}
+		.light{background-color: #00A1DA;}
+	</style>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>产品名称</th>
+					<th>产地</th>
+					<th>产商</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>小米手机</td>
+					<td>中国</td>
+					<td>小米</td>
+				</tr>
+				<tr>
+					<td>华为手机</td>
+					<td>中国</td>
+					<td>华为</td>
+				</tr>
+				<tr>
+					<td>Vivo手机</td>
+					<td>中国</td>
+					<td>Vivo</td>
+				</tr>
+				<tr>
+					<td>苹果手机</td>
+					<td>美国</td>
+					<td>苹果</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
+<script src="../JQ/jquery-3.5.1.min.js"></script>
+<script>
+	$(function(){
+		$("tbody tr:odd").addClass("odd");
+		$("tbody tr:even").addClass("even")
+		$("tbody tr").hover(
+			function(){$(this).addClass("light");},
+			function(){$(this).removeClass("light");}
+		);
+	});
+</script>

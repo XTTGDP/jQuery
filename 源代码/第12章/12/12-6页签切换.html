@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{list-style: none;}
+        #box{
+            position: relative;
+            width: 671px;
+            height: 326px;
+            margin: 50px auto;
+        }
+        #left{
+            float: left;
+        }
+        #left .left{ 
+            width: 90px;
+            height: 30px;
+            margin-bottom: 3px;
+            line-height: 30px;
+            background-color: blue;
+            color: aliceblue;
+            text-align: center;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        #right{
+            float: right;
+        }
+        #right .img{
+            display: none;
+        }
+        #right .img img{
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 540px;
+            height:300px;
+            margin-top: 26px;
+        }
+        #right .wrap{
+            position: absolute;
+            background-color: #999999;
+            right: 0;
+            width: 580px;
+            height: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        #right .wrap .list .btn{
+            float: left;
+            width: 120px;
+            height: 30px;
+            margin-left: 10px;
+            margin-right: 10px;
+            line-height: 25px;
+            margin: 0;
+            padding: 0;
+            color: black;
+            font-size: 12px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #right .wrap .list .btn.on,#left .left.on{
+            background-color:white;
+            color: blue;
+        }
+        #right .img.on,#right .img img.on{
+            display: block;
+        }
+    </style>
+	 <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	 <script type="text/javascript" src="js/12-6/switch.js"></script>
+</head>
+<body>
+    <div id="box">
+        <ul id="left">
+            <li class="left on">酒店</li>
+            <li class="left">机票</li>
+            <li class="left">自由行</li>
+        </ul>
+        <ul id="right">
+            <li class="img on">
+                <img src="imgs/images/d11.jpg" alt="" class="on">
+                <img src="imgs/images/d12.jpg" alt="">
+                <img src="imgs/images/d13.JPG" alt="">
+                <div class="wrap">
+                    <ul class="list">
+                        <li class="btn on">国内酒店</li>
+                        <li class="btn">海外酒店</li>
+                        <li class="btn">酒店团购</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="img">
+                <img src="imgs/images/j11.jpg" alt="" class="on">
+                <img src="imgs/images/j12.jpg" alt="">
+                <img src="imgs/images/j13.jpg" alt="">
+                <img src="imgs/images/d13.jpg" alt="">
+                <div class="wrap">
+                    <ul class="list">
+                        <li class="btn on">国内机票</li>
+                        <li class="btn">国际机票</li>
+                        <li class="btn">发现低价</li>
+                        <li class="btn">酒店</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="img">
+                <img src="imgs/images/z11.jpg" alt="" class="on">
+                <img src="imgs/images/z12.jpg" alt="">
+                <img src="imgs/images/z13.jpg" alt="">
+                <div class="wrap">
+                    <ul class="list">
+                        <li class="btn on">机票+酒店</li>
+                        <li class="btn">机票+X</li>
+                        <li class="btn">酒店+X</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>  
+           
+    </div>
+</body>
+</html>

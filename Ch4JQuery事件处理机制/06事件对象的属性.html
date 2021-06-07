@@ -1,0 +1,27 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-17 15:02:43
+ * @LastEditTime: 2020-12-22 15:37:00
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Web\JQuery基础\Ch4JQuery事件处理机制\06事件对象的属性.html
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../JQ/jquery-3.5.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				console.log(1)
+				$("#ediv").mouseover(function(event){
+					console.log(event.pageX,event.pageY)
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="ediv">Event对象</div>
+	</body>
+</html>

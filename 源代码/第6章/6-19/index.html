@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>记录删除时的提示效果</title>
+<style>
+
+.bss{
+	padding-left:50px;
+}
+a{
+	text-decoration:none;
+}
+.notice{
+	line-height:32px;
+	height:32px;
+	width:280px;
+	padding-left:10px;
+}
+.div span{
+	padding-left:50px;
+}
+.delDialog{
+	width:260px;
+	border:1px solid #666666;
+	margin-left:20px;
+	display:none;
+}
+.delDialog .title{
+	background-color:pink;
+	padding:5px;
+	color:#ffffff;
+	font-weight:bold;
+	font-size:14px;
+}
+.delDialog .title img{
+	float:right;
+	margin-top:-2px;
+}
+.delDialog .content{
+	background-color:#fff;
+	padding:10px;
+	height:60px;
+	font-size:12px;
+}
+.delDialog .content img{
+	float:left;
+}
+.delDialog .content span{
+	float:left;
+	padding-top:10px;
+	padding-left:10px;
+}
+
+.btn{
+	border:1px solid #666666;
+	padding:2px;
+	margin-left:36px;
+	margin-bottom:12px;
+	width:65px;
+}
+</style>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#delBtn").click(function(){
+		$(".delDialog").show();
+	})
+	$(".title img").click(function(){
+		$(".delDialog").hide();
+	})
+	$("#cancelBtn").click(function(){
+		$(".delDialog").hide();
+	})
+	$("#confirmBtn").click(function(){
+		$(".notice").remove();
+		$(".delDialog").hide();
+	})
+})
+</script>
+</head>
+<body>
+<h4>本站公告</h4>
+<div class="notice">
+	<span><a href="#" title="中秋节放假通知">中秋节放假通知！</a></span>
+	<span class="bss"> <input type="button" value="删除" id="delBtn"/></span>
+</div>
+
+<div class="delDialog">
+	<div class="title">
+		<img src="images/del.png"/>删除提示
+	</div>
+	<div class="content">
+		<img src="images/warning.png" />
+		<span>您确定要删除这条记录吗？</span>
+	</div>
+<div>
+	<input id="confirmBtn" type="button" value="确定" class="btn" />&nbsp;&nbsp;<input id="cancelBtn" type="button" value="取消" class="btn" />
+</div>
+</div>
+</body>
+</html>

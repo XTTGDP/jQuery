@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jQuery+HTML5实现图片旋转效果</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+#imgdiv{
+	width:360px;
+	height:420px;
+}
+#rimg{
+	height:363px;
+}
+ul li{
+cursor:pointer;
+}
+</style>
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.rotate.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#imgdiv ul li").each(function(i){    // 遍历ul下的li元素
+			$(this).bind("click",function(){    // 绑定单击事件
+				switch(i){
+					case 0:                     // 第1个li元素
+					$("#bimg").rotate(90);      // 将id为bimg的元素顺时针旋转90度
+					break;
+					case 1:						// 第2个li元素
+					$("#bimg").rotate(-90);		// 将id为bimg的元素逆时针旋转90度
+					break;
+					case 2:						// 第3个li元素
+					$("#bimg").rotate(180);		// 将id为bimg的元素旋转180度
+					break;						// 第4个li元素
+					case 3:
+					$("#bimg").rotate(270);		// 将id为bimg的元素旋转270度
+					break;
+				}
+			})
+		})
+	})
+</script>
+</head>
+
+<body>
+<div id="imgdiv">
+<div id="rimg">
+	<img src="images/1_02.png" id="bimg"/>
+</div>
+<ul>
+	<li>顺时针旋转90度</li>
+	<li>逆时针旋转90度</li>
+	<li>旋转180度</li>
+	<li>旋转270度</li>
+</ul>
+</div>
+</body>
+</html>

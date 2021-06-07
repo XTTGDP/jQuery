@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		.message{
+			width:320px;
+			font-size:12px;
+			border:1px solid #000000;
+		}
+		.tt{
+			padding:5px;
+		}
+		.msg_top{
+			margin-top:5px;
+		}
+		#bigBtn{
+			margin-left:180px;
+			font-size:10px;
+		}
+		#smallBtn{
+			margin-left:5px;
+			font-size:10px;
+		}
+		#content{
+			overflow:hidden;
+		}
+		</style>
+		<script src="../JQ/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var $content=$("#content");//获取文本域对象
+				$("#bigBtn").click(function(){
+					if(!$content.is(":animated")){
+						$content.animate({height:"+=70"},500);
+					}
+				});
+				$("#smallBtn").click(function(){
+					if(!$content.is(":animated")){
+						$content.animate({height:"-=70"},500);
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="message">
+			<div class="msg_top">
+				<input type="button" id="bigBtn" value="放大" />&nbsp;&nbsp;<input type="button" value="缩小" id="smallBtn" />
+			</div>
+			
+			<div class="tt">
+				<textarea id="content" rows="4" cols="35">JQuery是一套轻量级的JavaScript脚本库，它是目前最热门的Web前端开发技术之一，它的核心理念是"Write Less,Do More"</textarea>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-15 15:32:07
+ * @LastEditTime: 2020-12-15 15:43:08
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Web\JQuery基础\Ch7JQuery的Ajax操作\04$.getScript方法加载JS文件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../JQ/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.getScript("04test.js",function(){
+                $("#btn").click(function(){
+                   $(".mofun").css("backgroundColor","pink") 
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="改变背景颜色">
+    <div class="mofun">魔方科技</div>
+    <div class="mofun">魔方图书</div>
+</body>
+</html>
+
+<!--
+    在页面获取JS文件的内容方法
+    <script src="JS文件"></script>
+    或者
+    $("<script src="JS文件">").appendTo("head");
+    
+    但这样的方法都不是最理想的，在jQuery中，通过全局函数getScript()加载JS文件后，不仅可以像加载HTML片段一样简单方便，而且JavaScript会自动执行
+    大大提高了页面的执行效率。
+    $("#btn").click(function(){
+        $.getScript("JS文件")
+    })
+    getScript()方法还具备回调函数，在JS文件成功载入后执行
+-->

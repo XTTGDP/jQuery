@@ -1,0 +1,50 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-17 16:25:35
+ * @LastEditTime: 2020-12-24 08:20:57
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Web\JQuery基础\Ch5JQuery动画\01显示隐藏.html
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../JQ/jquery-3.5.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#img1").bind("click",function(){
+					$("#a").show(300);
+				})
+				$("#img2").bind("click",function(){
+					$("#b").hide(300);
+				})
+			})
+		</script>
+
+	</head>
+	<body>
+		<input type="button" value="第一个图片" id="img1" />
+		<img src="../Ch3JQuery操作DOM/image/a2.png" style="display: none;" id="a"/>
+		<input type="button" value="第二个图片" id="img2" />
+		<img src="../Ch3JQuery操作DOM/image/a1.png" id="b"/>
+	</body>
+</html>
+
+<!--
+	一：隐藏匹配元素
+
+hide();不带任何效果的隐藏元素
+
+hide(speed,[callback]); 
+spped：指定动画时长	三个默认值 show(600毫秒)	normal(400毫秒)	fast(200毫秒)
+callback指定隐藏完成后触发的回调函数
+
+二：显示匹配元素
+
+show();不带任何效果的显示元素
+show(speed,[callback])
+spped：指定动画时长	三个默认值 show(600毫秒)	normal(400毫秒)	fast(200毫秒)
+callback指定隐藏完成后触发的回调函数
+-->

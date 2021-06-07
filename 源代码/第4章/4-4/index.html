@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>向div元素插入节点</title>
+<style>
+body{
+	font-size:12px;
+}
+</style>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+		var $p_1 = $("<p>明日图书</p>");    // 创建第1个p元素
+		var $p_2 = $("<p>编程词典</p>");    // 创建第2个p元素，文本为空
+		$div = $("div");            // 获取div元素对象
+		$div.append($p_1);          // 将第1个p元素添加到div中
+		$p_2.appendTo($div);        // 将第2个p元素添加到div中
+
+   });
+</script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

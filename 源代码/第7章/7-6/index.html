@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>使用$.getScript()方法加载js文件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.mr{
+	width:200px;
+}
+</style>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.getScript("test.js",function(){
+			$("#btn").click(function(){
+				$(".mr").css("backgroundColor","lightblue");
+			})
+		})
+	})
+</script>
+</head>
+
+<body>
+<input type="button" id="btn" value="改变背景色"/>
+<div class="mr">明日科技</div>
+<div class="mr">明日图书</div>
+</body>
+</html>

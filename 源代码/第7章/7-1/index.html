@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>传统JavaScript的Ajax方式获取服务器端文本</title>
+
+<script type="text/javascript">
+	var xmlhttp = null;
+	function createXMLHttpRequest(){
+		if(window.ActiveXObject){            // IE浏览器
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}else if(window.XMLHttpRequest){     // 非IE浏览器
+			xmlhttp = new XMLHttpRequest();
+		}
+	}
+	
+	function startRequest(){
+		createXMLHttpRequest();
+		var url = "index.php";   // 要使用的服务器URL
+		xmlhttp.open("get",url,true);        // 使用open()方法发送一个异步请求
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+				alert(xmlhttp.responseText);
+			}
+		}
+		xmlhttp.send(null);
+	}
+	
+</script>
+
+</head>
+
+<body>
+<button name="button" onclick="startRequest();" />获取服务端文本</button>
+</body>
+</html>

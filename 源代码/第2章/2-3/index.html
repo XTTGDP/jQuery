@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>jQuery对象转换为DOM对象</title>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	var $jQueryObj = $("#testp");
+	alert("使用jQuery方法获取第一个p节点的内容："+$jQueryObj.html());
+	var $jQueryObj1 = $("#testp1");
+	alert("使用jQuery方法获取第二个p节点的内容："+$jQueryObj1.html());
+	var domObj = $jQueryObj[0];
+	alert("使用DOM方法获取第一个p节点的内容："+domObj.innerHTML);
+	var domObj1 = $jQueryObj1.get(0);
+	alert("使用DOM方法获取第二个p节点的内容："+domObj1.innerHTML);
+})
+	
+</script>
+</head>
+
+<body>
+<h2>明日图书</h2>
+<p id="testp">《JavaScript从入门到精通》</p>
+<p id="testp1">《JavaScript入门经典》</p>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+一：表单控件
+
+action属性：是指定处理表单提交数据的脚本文件，可以是JSP、ASP.NET或PHP脚本文件
+<form action="URL"></form>
+
+name属性：用于给表单命名
+<form name="form_name"></form>
+
+method属性:定义处理程序从表单中获取信息的方式
+<form method="method"></form>
+取值可以是get或post
+
+enctype：用于设置表单信息提交的编码
+<form enctype="value"></form>
+	value取值
+		test/plain   纯文本的形式传送
+		application/x-www-form-urlencoded	默认编码方式
+		multipart/form-data		MIME编码，上传文件的表单必须选择该项
+
+target属性:指定目标窗口的打开方式
+<form target="target_win"></form>
+	target_win取值
+		_blank	将返回信息显示在新打开的游览器窗口中
+		_parent	将返回信息显示在父级游览器窗口中
+		_self	将返回信息显示在当前游览器窗口中
+		_top	将返回信息显示在顶级游览器窗口中
+
+input:输入标记，常用的文本域、按钮等都用这个标记
+<form><input name="field_name" type="type_name"/></form>
+field_name:控件名称
+type_name:控件类型
+	type_name取值
+		text	文本框
+		password	密码域
+		radio	单选按钮
+		checkbox	复选框
+		button	普通按钮
+		submit	提交按钮
+		reset	重置按钮
+		image	图形域，也称为图像提交按钮
+		hidden	隐藏域，隐藏域将不显示在页面上，只将内容传递到服务器中
+		file	文件域
+		
+	text文本框
+	<input type="text" name="field_name" maxlength=max_value size=size_value value="field_value">
+		name	文本框名字
+		maxlength	文本框最大的输入字符数
+		size	文本框的宽度
+		value	文本框的默认值
+		
+	password密码域
+	<input type="password" name="field_name" maxlength="max_value" size="size_value">
+		name 密码域名称
+		maxlength 密码域的最大输入字符数
+		size 密码域的宽度
+		value 密码域的默认值
+	
+	radio单选按钮
+	<input type="radio" name="field_name" checked value="value">
+		checked 表示此选项默认选中
+		value	表示选中项目后传送到服务器端的值
+	
+	checkbox复选框
+	<input type="checkbox" name="field_name" checked value="value">
+		checked 表示此选项默认选中
+		value	表示选中项目后传送到服务器端的值
+		
+	button 普通按钮
+	<input type="button" name="field_name" value="button_text">
+		field_name 按钮名字
+		button_text 按钮上的文字
+	
+	submit 提交按钮
+	<input type="submit" name="field_name" value"submit_text">
+		field_name 提交按钮名字
+		submit_text 按钮上的名字
+		
+	textarea文本域标记
+	<input type="textarea" value="text_value" rows="rows_value" cols="cols_value" value="value">
+		name 文本域名称
+		rows 文本域行数
+		cols 文本域列数
+		value 文本域默认值
+		
+	select、option 菜单和列表标记
+	<select name="select_name" size=select_size multiple>
+		<option value="option_value" selected>选项</option>
+		<option value="option_value">选项</option>
+	</select>
+		name 菜单和列表的名称
+		size 显示的选项数目
+		multiple 列表中的项目多卷
+		value	选项值
+		selected	默认选项
+		
+二：操作文本域
+
+	操作文本框的值和状态
+	
+		获取文本框的值的方法
+			var textCon=$("#id").val();
+		或者 var textCon=$("#id").attr("value");
+		
+		设置文本框的值,可以使用attr()方法
+		$("#id").attr("value","要设定的值");
+		设置文本框不可编辑的方法
+		$("#id").attr("disabled","disabled");
+		设置文本框可编辑的方法
+		$("#id").removeAttr("disabled");
+
+
+三：操作单选按钮和复选框
+	
+	用attr()方法可以设置选中单选按钮或者复选框
+	$("#id").attr("checked",true);
+	使用attr()方法取消选中单选按钮或者复选框
+	$("#id").removeAttr("checked");
+	判断选中状态
+	if($("#id").attr("checked")=="checked"){
+		
+	}
+
+四：操作下拉框
+	读取下拉框的值
+	var setVal=$("#id").val();
+	设置下拉框的选中项
+	$("#id").attr("value",选中项的值);
+	清空下拉菜单
+	if($("#id").empty());
+	向下拉菜单中添加菜单项
+	if($("#id").append("<option value="值">文本</option>"))
+	

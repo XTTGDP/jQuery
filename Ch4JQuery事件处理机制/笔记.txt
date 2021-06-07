@@ -1,0 +1,118 @@
+bind()	向匹配元素附加一个或更多事件处理器
+blur()	触发、或将函数绑定到指定元素的 blur 事件
+change()	触发、或将函数绑定到指定元素的 change 事件
+click()	触发、或将函数绑定到指定元素的 click 事件
+dblclick()	触发、或将函数绑定到指定元素的 double click 事件
+delegate()	向匹配元素的当前或未来的子元素附加一个或多个事件处理器
+die()	移除所有通过 live() 函数添加的事件处理程序。
+error()	触发、或将函数绑定到指定元素的 error 事件
+event.isDefaultPrevented()	返回 event 对象上是否调用了 event.preventDefault()。
+event.pageX	相对于文档左边缘的鼠标位置。
+event.pageY	相对于文档上边缘的鼠标位置。
+event.preventDefault()	阻止事件的默认动作。
+event.result	包含由被指定事件触发的事件处理器返回的最后一个值。
+event.target	触发该事件的 DOM 元素。
+event.timeStamp	该属性返回从 1970 年 1 月 1 日到事件发生时的毫秒数。
+event.type	描述事件的类型。
+event.which	指示按了哪个键或按钮。
+focus()	触发、或将函数绑定到指定元素的 focus 事件
+keydown()	触发、或将函数绑定到指定元素的 key down 事件
+keypress()	触发、或将函数绑定到指定元素的 key press 事件
+keyup()	触发、或将函数绑定到指定元素的 key up 事件
+live()	为当前或未来的匹配元素添加一个或多个事件处理器
+load()	触发、或将函数绑定到指定元素的 load 事件
+mousedown()	触发、或将函数绑定到指定元素的 mouse down 事件
+mouseenter()	触发、或将函数绑定到指定元素的 mouse enter 事件
+mouseleave()	触发、或将函数绑定到指定元素的 mouse leave 事件
+mousemove()	触发、或将函数绑定到指定元素的 mouse move 事件
+mouseout()	触发、或将函数绑定到指定元素的 mouse out 事件
+mouseover()	触发、或将函数绑定到指定元素的 mouse over 事件
+mouseup()	触发、或将函数绑定到指定元素的 mouse up 事件
+one()	向匹配元素添加事件处理器。每个元素只能触发一次该处理器。
+ready()	文档就绪事件（当 HTML 文档就绪可用时）
+resize()	触发、或将函数绑定到指定元素的 resize 事件
+scroll()	触发、或将函数绑定到指定元素的 scroll 事件
+select()	触发、或将函数绑定到指定元素的 select 事件
+submit()	触发、或将函数绑定到指定元素的 submit 事件
+toggle()	绑定两个或多个事件处理器函数，当发生轮流的 click 事件时执行。
+trigger()	所有匹配元素的指定事件
+triggerHandler()	第一个被匹配元素的指定事件
+unbind()	从匹配元素移除一个被添加的事件处理器
+undelegate()	从匹配元素移除一个被添加的事件处理器，现在或将来
+unload()	触发、或将函数绑定到指定元素的 unload 事件
+
+二：事件绑定
+
+bind()为元素绑定事件
+bind(type,[data],fn)
+type:事件类型
+data：作为even.data属性值传递给事件对象的额外数据对象。大多数情况不使用。
+fn：绑定事件的处理程序
+
+unbind()移出绑定
+unbind([type],[data]);
+type:可选参数，指定事件类型
+data:可选参数，用于指定要从每个匹配元素的事件反绑定的事件处理函数。
+unbind()不填参数，将会删除匹配元素上所有绑定的事件。
+
+one绑定一次性事件处理
+one(type,[data],fn)
+type:用于指定事件类型
+data:可选参数,作为event.data属性值传递给事件对象的额外数据对象
+fn:绑定到每个匹配元素的事件上面的处理函数
+
+on绑定一次或多次事件处理
+on(events,[selector],[data],fn)
+events:一个或多个用空格分隔的事件类型和可选的命名空间，如"click"事件
+selector:可选参数 绑定事件的一个或多个子元素
+data:当一个事件被触发时要传递event.data给事件处理函数
+fn:该事件触发时执行的函数。
+
+off移出一次或多次事件处理
+off(events,[selector],[fn])
+events:一个或多个用空格分隔的事件类型和可选的命名空间，如"click"事件
+selector:一个最初传递到on事件处理程序附加的选择器
+fn:该事件触发时执行的函数。
+
+三：模拟用户操作
+
+	JQ提供了3种模拟用户的操作事件
+	
+	1.模拟用户的操作触发事件
+		常用triggerHandler()方法和trigger()方法来模拟用户的触发事件
+		
+		$("#button").trigger("click");触发ID为button的点击事件
+		
+		triggerHandler()方法的语句与tigger()方法完全相同，但triggerHandler()方法不会导致游览器执行相同名的的默认行为。而trigger会。
+		
+	2.模仿悬停事件
+	指用户鼠标移入到一个对象上，又移出
+	hover(over,out);
+	over:用于指定当鼠标指针在移动到匹配元素上时触发的函数。
+	out:用于指定当鼠标指针在移出匹配元素上时触发的函数。
+	
+四：事件捕获与事件冒泡
+
+event.stopPropagation();//阻止冒泡
+等同于JS的event.cancelBubble=true;
+
+event.preventDefault();//阻止默认事件
+
+五：事件对象的属性
+
+function(event)  event事件对象
+
+event.type  获取事件的类型
+event.preventDefault()	阻止默认的事件行为
+event.stopPrepagation() 阻止事件的冒泡行为
+event.target 获取到触发事件的元素
+event.relatedTarget
+relatedTarget事件属性返回与事件的目标节点相关的节点
+对于mousevoer事件来说，该属性是鼠标指针移到目标节点上所离开的那个节点
+对于mouseout事件来说，该属性是离开目标时，鼠标指针进入的节点
+
+event.pageX和event.pageY
+获取指针相对于页面的x坐标和y坐标。
+
+event.which
+该属性提示按下了哪个按键或按钮。

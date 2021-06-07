@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-15 14:35:45
+ * @LastEditTime: 2020-12-15 15:07:12
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Web\JQuery基础\Ch7JQuery的Ajax操作\02$.get方法请求数据.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../JQ/jquery-3.5.1.min.js"></script>
+    <SCript>
+        $(document).ready(function(){
+            $("#button").click(function(){
+                $.get("02get.php",{username:$("#username").val(),content:$("#content").val()},function(data,textStatus){
+                    $("#responseText").html("用户名:"+data.username+"<br>留言内容:"+data.content);
+                },"json");
+                // $.get("02get.php",{username:$("#username").val(),content:$("#content").val()},function(data,status){
+                //     // data:服务端返回的内容，可以是XML、JSON、HTML文档等
+                //     // status:请求状态
+                // });
+            })
+        })
+    </SCript>
+</head>
+<body>
+    <form action="" name="form">
+        用户名: <input type="text" id="username"><br><br>
+        内容: <textarea id="content"></textarea><br><br>
+        <input type="button" id="button" value="提交"><br><br>
+        <div id="responseText"></div>
+    </form>
+</body>
+</html>
+
+<!--
+    $.get()方法使用get方式进行异步请求
+    $.get(url[,data][,callback][,type])
+        url:请求的HTML页面的URL地址
+        data:可选参数，发送到服务器的数据
+        callback:可选参数，规定当请求成功时运行的函数
+        type:可选参数，预计的服务器响应的数据类型。默认地，JQuery将智能判断
+-->

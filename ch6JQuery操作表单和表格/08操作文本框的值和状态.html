@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../JQ/jquery-3.5.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#vbtn").click(function(){
+					if($("#testInput").val()!=""){
+						console.log($("#testInput").val());
+						$("#testInput").attr("disabled","disabled");
+					}else{
+						console.log("请输入文本内容！");
+						$("#testInput").focus();
+						return false;
+					}
+				});
+				
+				$("#dbtn").click(function(){
+					if($("#testInput").attr("disabled")=="disabled"){
+						$("#testInput").removeAttr("disabled");
+					}
+				});
+				
+			})
+		</script>
+	</head>
+	<body>
+		用户名:<input type="text" name="testInput" id="testInput" /><br><br>
+		<input type="submit" name="vbtn" id="vbtn" value="提交" />&nbsp;&nbsp;
+		<input type="button" name="dbtn" id="dbtn" value="修改" />
+	</body>
+</html>

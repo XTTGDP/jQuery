@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+
+<!--
+修改CSS类的方法：
+addClass(class)
+为所有匹配的元素添加指定的css类名
+$("div").addClass("blue line");
+为全部的DIV元素添加blue和line两个CSS类
+
+removeClass(class)
+从所有匹配的元素中删除全部或者指定的CSS类
+$("div").removeClass("line");
+删除全部div元素中添加的line CSS类
+
+toggleClass(class)
+如果存在就删除CSS类，如果不存在就添加CSS类
+$("div").toggleClass("yellow");
+当前匹配的div元素中存在yellow CSS类，则删除。否则添加
+
+toggleClass(class,switch)
+如果switch参数为true则加上对应的CSS，否则就删除。
+$("img").toggleClass("show",true);
+为img元素添加CSS类 show
+$("img").toggleClass("show",false);
+为img元素删除CSS类 show
+
+获取和修改CSS属性的方法
+
+css(name)
+返回第一个匹配元素的样式属性
+$("div").css("color");
+获取第一个DIV元素的color属性
+
+css(name,value)
+为所有匹配元素的指定样式设置值
+$("img").css("border","1px soild #000000")
+为所有的img图片元素设置了边框
+
+css(properties)
+以{属性：值，属性：值...}的形式为所有匹配的元素设置样式属性
+$("tr").css({
+	"background-color":"#0A65F3";设置背景颜色
+	"font-size":"14px";设置文字大小为14px
+	"color":"#FFFFFF";设置字体颜色
+})
+-->

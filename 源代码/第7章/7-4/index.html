@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>使用$.get()方法请求数据</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#button").click(function(){
+			$.get("index.php",{username:$("#username").val(),content:$("#content").val()},function(data,textStatus){
+				 $("#responseText").html("用户名："+data.username+"<br/>留言内容："+data.content);     // 将用户提交的用户名与留言内容显示
+			},"json");
+		})
+	})
+</script>
+</head>
+
+<body>
+<form name="form" action="">
+	用户名：<input type="text" id="username" /><br/><br/>
+	内容：<textarea id="content"></textarea><br/><br/>
+	<input type="button" id="button" value="提交"/><br/><br/>
+	<div id="responseText"></div>
+</form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css" />
+<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<title>折叠面板（Accordion）的使用</title>
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      heightStyle: "fill"
+    });
+  });
+ </script>
+</head>
+<body>
+ 
+<h3 class="docs">折叠面板（Accordion）的使用</h3>
+ 
+<div class="ui-widget-content" style="width:350px;">
+  <div id="accordion">
+    <h3>教材</h3>
+    <div>
+      <p>jQuery开发基础教程</p>
+      <p>ASP.NET开发应用与实战</p>
+      <p>PHP开发应用与实战</p>
+    </div>
+    <h3>编程词典</h3>
+    <div>
+      <p>PHP编程词典</p>
+      <p>ASP.NET编程词典</p>
+      <p>Java Web编程词典</p>
+    </div>
+    <h3>范例宝典</h3>
+    <div>
+    <p>程序开发范例宝典（第4版）</p>
+      <ul>
+        <li>ASP.NET</li>
+        <li>PHP</li>
+        <li>Java Web</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

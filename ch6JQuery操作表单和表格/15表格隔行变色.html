@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>表格隔行换色</title>
+<style>
+.odd{
+	background:lightblue;
+}
+.even{
+	background:yellow;
+}
+</style>
+<script type="text/javascript" src="../JQ/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("tbody>tr:odd").addClass("odd");     // 为表格奇数行添加样式
+	$("tbody>tr:even").addClass("even");   // 为表格偶数行添加样式
+})
+</script>
+</head>
+<body>
+<table border="1" align="center">
+  <caption>JavaScript开发非常之旅套系图书</caption>
+  <thead bgcolor="#B2B2B2" align="center" valign="bottom">
+  	 <tr>
+  	   <th>书名</th>
+ 	   <th>出版单位</th>
+ 	 </tr>
+  </thead>
+ <tbody>
+  <tr>
+    <td width="185">JavaScript从入门到精通</td>
+    <td width="220">吉林省明日科技有限公司</td>
+  </tr>
+  <tr>
+    <td>JavaScript自学视频教程</td>
+    <td>吉林省明日科技有限公司</td>
+  </tr>
+  <tr>
+    <td>JavaScript程序设计</td>
+    <td>吉林省明日科技有限公司</td>
+  </tr>
+  <tr>
+    <td>jQuery开发基础教程</td>
+    <td>吉林省明日科技有限公司</td>
+  </tr>
+  <tr>
+    <td>jQuery从入门到精通</td>
+    <td>吉林省明日科技有限公司</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

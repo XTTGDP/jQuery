@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<title>制作一个高度可变的评论框</title>
+<style>
+.message{
+	width:320px;
+	font-size:12px;
+	border:1px solid #000000;
+}
+.tt{
+	padding:5px;
+}
+.msg_top{
+	margin-top:5px;
+}
+#bigBtn{
+	margin-left:180px;
+	font-size:10px;
+}
+#smallBtn{
+	margin-left:5px;
+	font-size:10px;
+}
+#content{
+	overflow:hidden;
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var $content = $("#content");   // 获取文本域对象
+		$("#bigBtn").click(function(){  // 放大按钮单击事件
+			if(!$content.is(":animated")){    // 是否处于动画中
+				if($content.height() < 350){
+					// 将文本域高度在原来的基础上增加70
+					$content.animate({height:"+=70"},500);
+				}
+			}
+		})
+		$("#smallBtn").click(function(){ // 缩小按钮单击事件
+		if(!$content.is(":animated")){   // 是否处于动画中
+			if($content.height() > 70){
+				// 将文本域高度在原来的基础上减少70
+				$content.animate({height:"-=70"},500);
+			}
+		}
+		})
+	})
+</script>
+
+</head>
+
+<body>
+<div class="message">
+	<div class="msg_top">
+		<input type="button" value="放大" id="bigBtn"/>&nbsp;&nbsp;<input type="button" value="缩小" id="smallBtn"/>
+	</div>
+	<div class="tt">
+		<textarea id="content" rows="4" cols="35">明日编程词典系列软件是由近百位软件开发专业人士联手打造，国内第一部为编程开发人员研制的编程专业软件。
+		</textarea>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css" />
+<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<title>标签页（Tabs）的使用</title>
+ <script>
+  $(function() {
+    $( "#tabs" ).tabs({
+      collapsible: true,
+	  event: "mouseover"
+    });
+  });
+  </script>
+</head>
+<body>
+ 
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">ASP.NET</a></li>
+    <li><a href="#tabs-2">PHP</a></li>
+    <li><a href="#tabs-3">Java Web</a></li>
+  </ul>
+  <div id="tabs-1">
+    <p><strong>二次单击标签页可以隐藏内容</strong></p>
+    <p>ASP.NET是Microsoft公司推出的新一代建立动态Web应用程序开发平台，可以把程序开发人员的工作效率提升到与其他技术无法比拟的程度，与Java、PHP、ASP 3.0、Perl等相比，ASP.NET具有方便性、灵活性、性能优、生产效率高、安全性高、完整性强及面向对象等特性，是目前主流的网站编程技术之一。</p>
+  </div>
+  <div id="tabs-2">
+    <p><strong>二次单击标签页可以隐藏内容</strong></p>
+    <p>PHP是全球最普及、应用最广泛的互联网开发语言之一。PHP语言具有简单、易学、源码开放、可操纵多种主流与非主流的数据库、支持面向对象的编程、支持跨平台的操作以及完全免费等特点，越来越受到广大程序员的青睐和认同。</p>
+  </div>
+  <div id="tabs-3">
+    <p><strong>二次单击标签页可以隐藏内容</strong></p>
+    <p>Java是Sun公司推出的能够跨越多平台的、可移植性最高的一种面向对象的编程语言。也是目前最先进、特征最丰富、功能最强大的计算机语言。利用Java可以编写桌面应用程序、Web应用程序、分布式系统、嵌入式系统应用程序等，从而使其成为应用范围最广泛的开发语言，特别是在Web程序开发方面。</p>
+  </div>
+</div>
+</body>
+</html>

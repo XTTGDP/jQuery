@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("a.main").mouseover(function(){		//绑定鼠标移到超级链接事件
+		window.status="http://www.mrbccd.com";return true;	//设定状态栏文本
+	}).mouseout(function(){					//绑定鼠标移出超级链接事件
+		window.status="完成";return true;	//设定状态栏文本
+	});
+});
+</script>
+<title>隐藏超级链接地址</title>
+<style type="text/css">
+body{
+	margin:0px; 			/*设置外边距*/
+	padding:0px; 		/*设置内边距*/
+	font-size: 9pt; 		/*设置字体大小*/
+}
+a:hover {
+	font-size: 9pt;
+	color: #FF4400;
+}
+a {
+	font-size: 9pt;
+	text-decoration: none;	/*不显示下划线*/
+	color: #3C404D;
+}
+#bottom{
+	background-image:url(images/bottom.jpg);
+	height:59px;
+	width:800px;
+	clear: both;
+	text-align:center;
+	padding-top:10px;
+}
+#top{					/*设置页面头部的DIV样式*/
+	background-image:url(images/bg_top.jpg);
+	width:800px;
+	height:176px;
+}
+#navigation{			/*设置导航条的样式*/
+	background-image:url(images/navigation_bg.jpg);
+	width:790px;
+	height:26px;
+	padding:5px 5px 0px 5px;
+	margin: 0px;
+}
+</style>
+</head>
+<body  bgcolor="#F0F0F0">
+<div id="top"></div>
+<div id="navigation">
+	<div style="float:left;color:#006700;">
+		<b> &nbsp; 》&nbsp; 欢迎光临九宫格日记网！</b>
+	</div>
+	<div style="float:right;text-align: right;">
+		<a href="index.html">首页</a> 
+		&nbsp; | &nbsp;<a href="index.html" class="main">登录</a>
+		&nbsp; | &nbsp;<a href="index.html" class="main">注册</a>
+		&nbsp; | &nbsp;<a href="index.html" class="main">找回密码</a>	 
+	</div>
+</div>
+<div style="padding:20px;width:760px;background-color: #FFF;">
+	暂无内容
+</div>
+<div id="bottom"></div>
+</body>
+</html>

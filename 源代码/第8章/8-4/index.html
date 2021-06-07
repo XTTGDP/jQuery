@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css" />
+<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<title>日期选择器（Datepicker）</title>
+   <script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+	  showButtonPanel: true,
+	  numberOfMonths: 2,
+      changeMonth: true,
+      changeYear: true,
+	  showWeek: true,
+      firstDay: 1
+    });
+	$( "#format" ).change(function() {
+      $( "#datepicker" ).datepicker( "option", "dateFormat", $( this ).val() );
+    });
+  });
+  
+  </script>
+</head>
+<body> 
+<p>日期：<input type="text" id="datepicker"></p> 
+<p>格式选项：<br>
+  <select id="format">
+    <option value="mm/dd/yy">mm/dd/yyyy格式</option>
+    <option value="yy-mm-dd">yyyy-mm-dd格式</option>
+    <option value="d M, y">短日期格式 - d M, y</option>
+    <option value="DD, d MM, yy">长日期格式 - DD, d MM, yy</option>
+  </select>
+</p>
+</body>
+</html>

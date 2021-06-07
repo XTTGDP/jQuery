@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>控制复选框的全选、全不选和反选</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script>
+$(function(){
+	$("#checkAll").click(function(){
+		$("input[type=checkbox]").attr("checked",true);
+	})
+	$("#unCheckAll").click(function(){
+		$("input[type=checkbox]").removeAttr("checked");
+	})
+	
+	$("#revBtn").click(function(){
+		$("input[type=checkbox]").each(function(){
+			this.checked = !this.checked;
+		});
+	})
+	$("#subBtn").click(function(){
+		var msg = "你喜欢的运动是：\r\n";
+		$("input[type=checkbox]:checked").each(function(){
+			msg+=$(this).val()+"\r\n";
+		});
+		alert(msg);
+	})
+})
+</script>
+</head>
+
+<body>
+<form>
+<h3 align="center">选择你喜欢的运动</h3>
+<input type="checkbox" name="hobby" value="游泳">游泳
+<input type="checkbox" name="hobby" value="足球">足球
+<input type="checkbox" name="hobby" value="篮球">篮球
+<input type="checkbox" name="hobby" value="滑冰">滑冰
+<input type="checkbox" name="hobby" value="滑雪">滑雪
+<input type="checkbox" name="hobby" value="乒乓球">乒乓球<br/><br/>
+<input type="button" id="checkAll" value="全选">&nbsp;<input type="button" id="unCheckAll" value="全不选">&nbsp;
+<input type="button" id="revBtn" value="反选">&nbsp;<input type="button" id="subBtn" value="提交">&nbsp;
+</form>
+</body>
+</html>

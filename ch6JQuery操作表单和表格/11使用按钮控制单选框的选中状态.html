@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../JQ/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#bbtn").click(function(){
+					$("input[type=radio]").eq(0).attr("checked",true);
+				});
+				$("#gbtn").click(function(){
+					$("input[type=radio]").eq(1).attr("checked",true);
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<form>
+			<h3>选中你喜欢吃的水果</h3>
+			<input type="radio" name="fruit" value="香蕉">香蕉
+			<input type="radio" name="fruit" value="葡萄" />葡萄<br>
+			<input type="button" id="bbtn" value="香蕉" />&nbsp;&nbsp;<input type="button" id="gbtn" value="葡萄" />
+		</form>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<p title="莫凡魔方科技">莫凡魔方科技</p>
+			<p title="莫凡图书">莫凡图书</p>
+		</div>
+	</body>
+</html>
+<script src="../../JQ/jquery-3.5.1.min.js"></script>
+<script>
+	$("div p:eq(1)").bind("click",function(){
+		$(this).clone().insertAfter(this);
+	})
+</script>
+<!--
+
+clone()方法用于复制节点。
+一种是不带参数，用于克隆匹配的DOM元素，并且选中这些克隆的副本。
+另一种是带布尔型的参数，当参数为true时，表示克隆匹配的元素以及其所有的事件处理并且选中这些克隆的副本。
+					  当参数为false时，表示不复制元素的事件处理
+-->

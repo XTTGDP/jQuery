@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>使用detach()方法删除节点</title>
+<style>
+body{
+	font-size:12px;
+}
+</style>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+			var $p_2 = $("div p:eq(1)").detach();  // 删除元素
+			//$p_2.appendTo("div");
+	});
+</script>
+</head>
+<body>
+<div>
+<p title="明日科技">明日科技</p>
+<p title="明日图书">明日图书</p>
+</div>
+</body>
+</html>

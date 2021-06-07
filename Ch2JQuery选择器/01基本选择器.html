@@ -1,0 +1,57 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-09 19:59:06
+ * @LastEditTime: 2020-12-15 23:01:53
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Web\JQuery基础\Ch2JQuery选择器\01基本选择器.html
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p id="p1" class="p1">第1行</p>
+		<p id="p2" class="p2">第2行</p>
+		<p id="p3" class="p3">第3行</p>
+		<p id="p4" class="p4">第4行</p>
+		<p id="p5" class="p5">第5行</p>
+	</body>
+</html>
+
+<script src="../JQ/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+		// ID选择器
+		// $('#id') === document.getElementById('id')
+		// $('#p1').click(function(){
+		// 	$('#p1').hide();
+		// })
+		
+		// 元素选择器
+		// $("div") === document.getElementByTagName("div")
+		// $('p').click(function(){
+		// 	$('p').hide();
+		// });
+		
+		// 类名选择器
+		// $('.class') === document.getElementsByClassName("class")
+		// $('.p1').click(function(){
+		// 	$('.p1').hide();
+		// })
+		
+		// 复合选择器
+		// $('#id,.class,div')
+		// $('#p1').click(function(){
+		// 	$('#p1,.p2').hide();
+		// })
+		
+		// 通配符选择器
+		// $(*) 获取全部元素
+		// $('*').click(function(){
+		// 	$('*') .hide();
+		// })
+	})
+</script>

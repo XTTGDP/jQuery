@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>会员注册</title>
+    <link rel="stylesheet" type="text/css" href="css/register.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/12-2/djs.js"></script>
+</head>
+<style>
+    .font1
+    {
+        color: #acd252!important;
+    }
+    .span1,  .span2
+    {
+        background-color: #acd252;
+    }
+
+</style>
+<body>
+<div id="top">
+    <a href="index.html"><img src="imgs/img/c_logo2013.png"></a>
+    <div id="top1">
+        <a id="login" href="Login.html">登录</a>
+        <a>|</a>
+        <a id="a1">客服中心</a>
+    </div>
+</div>
+
+
+
+<!--验证部分-->
+<div id="verification" style="display: block;">
+    <div class="center1-3">
+        <span class="span3 span1" ></span>
+        <span class="span4 span2" ></span>
+        <font class="font1">填写</font>
+    </div>
+    <div class="center1-3">
+        <span class="span3 span1"></span>
+        <span class="span4 span2"></span>
+        <font class="font1">验证</font>
+    </div>
+    <div class="center1-4">
+        <span class="span3"></span>
+        <span class="span4"></span>
+        <font>注册成功</font>
+    </div>
+    <div id="center3">
+        <span>会员注册</span>
+        <a>注册成功可获<font id="jf">1000</font>积分 + <font id="fx">返现</font>特权！</a>
+    </div>
+    <div id="towCenter">
+        <div id="towCenter1">
+            <div id="towCenter1-1">
+                <span>验证码已发送至<a id="phonenum"></a>，<br />请在24小时内完成验证。</span>
+            </div>
+            <input id="code" type="text" placeholder=" 验证码" /><br />
+            <input id="btn2" type="button" value="完成注册" onclick="zc()" /><br />
+            <span id="next_step1">注册遇到问题？</span>
+        </div>
+        <div id="towCenter2">
+            <p id="towCenter2_p">没有收到验证码？您可以：</p>
+
+                <input style="margin-left: 30px;cursor: pointer" onclick="settime(this)" type="button" value="免费获取验证码">
+            <p id="or">或</p>
+            <a id="a8">修改手机号></a>
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+<div id="button">
+			<span>
+				<a class="aa1">网站导航</a>
+				<a class="aa1">宾馆索引</a>
+				<a class="aa1">服务说明</a>
+				<a class="aa1">关于携程</a>
+				<a class="aa1">企业公民</a>
+				<a class="aa1">诚聘英才</a>
+				<a class="aa1">分销联盟</a>
+				<a class="aa1" id="a6">企业礼品卡采购</a>
+				<a class="aa1">代理合作</a>
+				<a class="aa1">广告业务</a>
+				<a class="aa1">联系我们</a>
+				<a class="aa1" id="a7">我要提建议</a>
+			</span>
+    <p>Copyright© 1999-2017, ctrip.com. all rights reserved. </p>
+</div>
+</body>
+</html>

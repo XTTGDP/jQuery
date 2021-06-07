@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css" />
+<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<title>自动完成（Autocomplete）插件的使用</title>
+  <style>
+  .ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+    /* 防止水平滚动条 */
+    overflow-x: hidden;
+  }
+  * html .ui-autocomplete {
+    max-height: 200px;
+  }
+  </style>
+  <script>
+  $(function() {
+    var datas = [
+      "iPhone 4",
+      "iPhone 4S",
+      "iPhone 5",
+      "iPhone 5S",
+      "iPhone 6",
+      "Nokia 1020",
+      "Nokia 1320",
+      "Nokia 1520",
+      "华为 Ascend P7",
+      "华为 Ascend P6",
+      "华为 荣耀6",
+      "华为 荣耀3X",
+      "华为 荣耀3C",
+      "三星 S5",
+      "三星 Note3",
+      "三星 Note2",
+      "三星 S4",
+      "三星 S3"
+    ];
+    $( "#tags" ).autocomplete({
+      source: datas
+    });
+  });
+  </script>
+</head>
+<body>
+<div class="ui-widget">
+  <label for="tags">输入查询关键字：</label>
+  <input id="tags">
+</div>
+</body>
+</html>

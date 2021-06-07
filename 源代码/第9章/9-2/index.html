@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>zTree插件异步加载大数据</title>
+<link rel="stylesheet" href="css/demo.css" type="text/css">
+	<link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ztree.core-3.5.js"></script>
+	<SCRIPT type="text/javascript">
+		var setting = {
+			async: {
+				enable: true,            // 开启异步加载模式
+				url: getUrl              // 获取数据的URL地址
+			},
+			check: {
+				enable: true            // 设置zTree上节点显示checkbox
+			},
+			data: {
+				simpleData: {
+					enable: true        // 使用简单数据模式
+				}
+			},
+			view: {
+				expandSpeed: ""         // zTree展开折叠时的动画速度，“”表示不显示动画效果
+			},
+			callback: {
+				beforeExpand: beforeExpand,       // 捕获父节点展开之前的事件回调函数
+				onAsyncSuccess: onAsyncSuccess,   // 捕获异步加载正常结束的事件回调函数
+				onAsyncError: onAsyncError        // 捕获异步加载出现异常错误的事件回调函数
+			}
+		};
+
+		var zNodes =[
+			{name:"10个节点", id:"1", count:10, times:1, isParent:true},
+			{name:"100个节点", id:"2", count:100, times:1, isParent:true},
+			{name:"1000个节点", id:"3", count:1000, times:1, isParent:true}
+		];
+		var log, className = "dark",
+		startTime = 0, endTime = 0, perCount = 100, perTime = 100;
+		function getUrl(treeId, treeNode) {
+			var curCount = (treeNode.children) ? treeNode.children.length : 0;
+			var getCount = (curCount + perCount) > treeNode.count ? (treeNode.count - curCount) : perCount;
+			var param = "id="+treeNode.id+"_"+(treeNode.times++) +"&count="+getCount;
+			return "getBigData.php?" + param;
+		}
+		// 父节点展开之前执行
+		function beforeExpand(treeId, treeNode) {
+			if (!treeNode.isAjaxing) {
+				startTime = new Date();
+				treeNode.times = 1;
+				ajaxGetNodes(treeNode, "refresh");
+				return true;
+			} else {
+				alert("zTree 正在下载数据中，请稍后展开节点。。。");
+				return false;
+			}
+		}
+		// 异步加载成功时执行
+		function onAsyncSuccess(event, treeId, treeNode, msg) {
+			if (!msg || msg.length == 0) {
+				return;
+			}
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo"),   // 获取zTree对象
+			totalCount = treeNode.count;                      // 节点数
+			if (treeNode.children.length < totalCount) {      // 子节点数没到最大值时
+				setTimeout(function() {ajaxGetNodes(treeNode);}, perTime);   // 继续执行ajaxGetNodes
+			} else {                          // 达到节点数最大值
+				treeNode.icon = "";
+				zTree.updateNode(treeNode);   // 更新节点数据
+				zTree.selectNode(treeNode.children[0]);  // 选中第一个节点
+				endTime = new Date();        // 结束时间
+				var usedTime = (endTime.getTime() - startTime.getTime())/1000; // 加载完毕消耗的时间
+				className = (className === "dark" ? "":"dark");
+				showLog("[ "+getTime()+" ]&nbsp;&nbsp;treeNode:" + treeNode.name );
+				showLog("加载完毕，共进行 "+ (treeNode.times-1) +" 次异步加载, 耗时："+ usedTime + " 秒");
+			}
+		}
+		// 异步加载失败时执行
+		function onAsyncError(event, treeId, treeNode, XMLHttpRequest, textStatus, errorThrown) {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo");     // 根据id获取zTree对象
+			alert("异步获取数据出现异常。");                   // 弹出消息提示
+			treeNode.icon = "";                                 // 清空图标
+			zTree.updateNode(treeNode);                         // 更新节点数据
+		}
+		function ajaxGetNodes(treeNode, reloadType) {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo");     // 根据id获取zTree对象
+			if (reloadType == "refresh") {                      // 如果加载类型为刷新
+				treeNode.icon = "css/zTreeStyle/img/loading.gif";  // 加载时对应的图片
+				zTree.updateNode(treeNode);                     // 更新节点数据
+			}
+			zTree.reAsyncChildNodes(treeNode, reloadType, true); // 强行异步加载父节点的子节点
+		}
+		// 显示日志
+		function showLog(str) {
+			if (!log) log = $("#log");   // 获取log对象
+			log.append("<li class='"+className+"'>"+str+"</li>");     // 添加log内容
+			if(log.children("li").length > 6) {        // 如果子节点大于6
+				log.get(0).removeChild(log.children("li")[0]);       // 移除第一个节点
+			}
+		}
+		// 获取时间的时分秒毫秒
+		function getTime() {
+			var now= new Date(),    // 当前时间
+			h=now.getHours(),       // 当前时间的小时数
+			m=now.getMinutes(),     // 当前时间的分钟数
+			s=now.getSeconds(),     // 当前时间的秒数
+			ms=now.getMilliseconds();  // 当前时间的毫秒数
+			return (h+":"+m+":"+s+ " " +ms);   // 返回时分秒毫秒值
+		}
+		$(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+
+		});
+	</SCRIPT>
+ </HEAD>
+
+<BODY>
+<h1>使用zTree插件异步加载大数据</h1>
+<div class="content_wrap">
+	<div class="zTreeDemoBackground left">
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+	<ul id="log"></ul>
+</div>
+</BODY>
+</HTML>

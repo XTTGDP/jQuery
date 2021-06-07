@@ -1,0 +1,113 @@
+一：基本选择器
+
+ID选择器	$('#id') === document.getElementById('id')
+元素选择器	$("div") === document.getElementByTagName("div")
+类名选择器	$('.class') === document.getElementsByClassName("class")
+复合选择器	$('#id,.class,div')
+通配符选择器 $(*) 获取全部元素
+
+二：层次选择器
+
+ancestor descendant 选择器
+	ancestor 代表祖先 descendant 代表子孙
+	$('ancestor descendent');
+	$("ul li")匹配ul元素下的全部li元素
+	
+parent>child选择器
+	$("parent > child")
+			
+prev+next选择器
+	prev 和 next 是同级元素
+	$("prev + next ")
+				
+prev ~ siblings 选择器
+	prev 和 siblings 是同辈元素
+	匹配prev 后面所有的siblings元素
+	$("prev ~ siblings ")
+	
+prevAll()定位最后一个 div 之前的所有 div，并为它们添加类：
+nextAll()查找第一个 div 之后的所有类名，并为他们添加类名：
+	
+三：简单选择器
+
+:first   匹配找到的第一个元素  $("tr:first") 匹配表格的第一行
+:last    匹配找到的最后一个元素  $("tr.last") 匹配表格的最后一行、
+:even    匹配所有索引值为偶数的元素，索引值从0开始   $("tr:even")匹配索引值为偶数的行
+:odd     匹配所有索引值为奇数的元素，索引值从0开始   $("tr:odd")匹配索引值为奇数的行
+:eq(index) 匹配一个给定索引值的元素	$("div:eq(1)") 匹配第二个div元素
+:gt(index) 匹配所有大于给定索引值的元素  $("span:gt(0)") 匹配索引大于1的span元素
+:lt(index) 匹配所有小于给定索引值的元素  $("div:lt(2)") 匹配索引小于2的div元素
+
+:header    匹配如 h1、h2、h3之类的标题元素 	$(":header") 匹配全部的标题元素
+:not(selector)	去除所有与给定选择器匹配的元素		$("input:not(:checked)")	匹配没有选到的input元素
+:animated     匹配所有正在执行效果的元素      $("div:animated") 匹配正在执行的动画DIV元素
+:lang     选择指定语言的所有元素      $("p:lang(it)")  选择所有<p>的语言属性
+:focus    匹配当前获取焦点的元素      elem.is(":focus") 匹配获得焦点的元素
+:root     选择该文档的根元素			$(":root").css("background-color","yellow") 设置html背景颜色为黄色
+:target   选择由文档URI的格式化识别码表示的目标元素     给定的URI http:\\example.com/#foo  $("p:target") 选择<p id=foo>元素
+
+四：内容过滤器
+
+:contains(text) 匹配包含给定文本的元素    $("li:contains('DOM')")  匹配含有"DOM"文本内容的li元素
+:empty    匹配所有不包含子元素或者文本的空元素  $("td:empty")  匹配不包含子元素或者文本的单元格
+:has(selector)  匹配含有选择器所匹配元素的元素    $("td:has(p)")  匹配表格的单元格中含有<p>标记的单元格
+:parent    匹配含有子元素或者文本的元素     $("td:parent")   //匹配不为空的单元格，即在该单元格中还包括子元素或者文本
+
+五：可见性过滤器
+
+:visible   匹配所有可见元素
+:hidden    匹配所有不可见元素
+
+六：表单对象的属性过滤器
+
+:checked   匹配所有选中的被选中元素   $("input:checked")  匹配所有被选中的input元素
+:disabled  匹配所有不可用元素    $('input:disabled')  匹配所有不可用的input元素
+:enabled   匹配所有可用的元素    $('input:enabled')   匹配所有可用的input 元素
+:selected  匹配所有选中的option元素  $('select option:selected') 匹配所有被选中的选项元素
+
+七：子元素过滤选择器
+
+:first-child    匹配所有给定元素的第1个子元素	$("ul li:first-child")  匹配ul元素中的第1个子元素li
+:last-child 	匹配所有给定元素的最后1个子元素  	$("ul li:lsat-child")匹配ul元素中的最后1个子元素li
+:only-child 	如果某个元素是它父元素中唯一的子元素，那么将被匹配。如果父元素中含有其他元素，则不会被匹配。$("ul li:only-child") 匹配只含有一个li元素的ul元素中的li
+
+:nth-child(index/even/odd/equation) 匹配每个父元素下的第index个子或奇偶元素，index从1开始，而不是从0开始。 $("ul li:nth-child(even)") 匹配ul中索引值为偶数的li元素
+																									  $("ul li:nth-child(3)")匹配ul第三个li元素
+																									  
+:first-of-type 结构化伪类,匹配E的父元素的第一个E类型的孩子。
+:last-of-type  结构化伪类,匹配E的父元素的最后一个E类型的孩子。
+
+:nth-last-child(n|even|odd|formula)选择所有它们父元素的第n个子元素。计数从最后一个元素开始到第一个元素。 $("ul li:nth-last-child(2)");在每个匹配的ul中查找倒数第2个li
+:nth-last-of-type(n|even|odd|formula)选择所有它们的父级元素的第n个子元素。计数从最后一个元素开始到第一个元素 $("ul li:nth-last-of-type(2)")在每个匹配的ul中查找倒数第二个li
+:nth-of-type(n|even|odd|formula)选择同属于一个父元素之下，并且标签名相同的子元素中的第n个  $("span:nth-of-type(2)")查找每个span ，这span是其所有兄弟span元素中的第二个元素
+
+:only-of-type 选择所有没有兄弟元素，且具有相同的元素名称的元素。		如果父元素有相同的元素名称的其他子元素，那么没有元素会被匹配
+
+八：属性选择器
+
+[attribute]  匹配包含给定属性的元素   $("div[name]") 匹配含有name属性的div元素
+[attribute=value] 匹配属性值为value的元素  $("div[name="test"]")匹配name属性是test的div元素
+[attribute!=value] 匹配属性值不等于value的元素  $("div[name!="test"]")匹配name属性不是test的div元素
+[attribute*=value] 匹配属性值含有value的元素  $("div[name*="test"]")匹配name属性含有test的div元素
+[attribute^=value] 匹配属性值以value开始的元素  $("div[name^="test"]")匹配name属性以test开头的div元素
+[attribute$=value] 匹配属性值以value结束的元素  $("div[name$="test"]")匹配name属性以test结尾的div元素
+[selector1][selector2][selectorN] 复合属性选择器，需要同时满足多个条件使用  $("div[id][name^="test"]")匹配具有id属性并且name属性以test开头的div元素
+
+九：表单选择器
+
+:input 匹配所有的input元素  $(":input") 匹配所有的input元素
+						   $("form :input")匹配form标记中所有的input元素
+:button 匹配所有的普通按钮 即type="button" 的 input元素  $(":button")
+:checkbox 匹配所有的复选框  $(":checkbox") 
+:file 匹配所有的文件域  $(":file") 
+:hidden 匹配所有的不可见元素，或者type为hidden的元素  $(":hidden") 
+:image  匹配所有的图像域   $(":image") 
+:password 匹配所有的密码域  $(":password")
+:radio  匹配所有的单选按钮  $(":radio")
+:reset  匹配所有的重置按钮 即type="reset"的input元素 $(":reset")
+:submit 匹配所有的提交按钮 即type="submit"的input元素 $(":submit")
+:text   匹配所有的单行文本框  $(":text")
+
+十：混淆选择器
+
+$.escapeSelector(selector)  处理CSS特殊字符   $.escapeSelector("#target");  "\#target" 对含有#号的ID进行编码

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		.message{
+			width:320px;
+			font-size:12px;
+			border:1px solid #000000;
+		}
+		.tt{
+			padding:5px;
+		}
+		.msg_top{
+			margin-top:5px;
+		}
+		#bigBtn{
+			margin-left:180px;
+			font-size:10px;
+		}
+		#smallBtn{
+			margin-left:5px;
+			font-size:10px;
+		}
+		
+		</style>
+		<script src="../JQ/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var $content = $("#content");
+				$("#upBtn").click(function(){
+					if(!$content.is(":animated")){
+						$content.animate({scrollTop:"-=40"},500);
+					}
+				});
+				$("#downBtn").click(function(){
+					if(!$content.is(":animated")){
+						$content.animate({scrollTop:"+=40"},500);
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="message">
+			<div class="msg_top">
+				<input type="button" id="upBtn" value="向上" />&nbsp;&nbsp;<input type="button" id="downBtn" value="向下" />
+			</div>
+			<div class="tt">
+				<textarea id="content" rows="4" cols="35">明日编程词典系列软件是由近百位软件开发专业人士联手打造，国内第一部为编程开发人员研制的编程专业软件。汇聚十多年软件开发经验和专业文档积累；提供价值百万的超值源代码；内置强大的智能搜索引擎，可以实现从文档到源代码的高效检索；包括技术文档、实例、项目、源码、视频、界面图片等海量开发资源，全方位解决开发人员的开发难题。</textarea>
+			</div>
+		</div>
+	</body>
+</html>

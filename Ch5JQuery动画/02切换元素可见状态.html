@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-17 16:45:10
+ * @LastEditTime: 2020-12-24 08:21:28
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Web\JQuery基础\Ch5JQuery动画\02切换元素可见状态.html
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../JQ/jquery-3.5.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#img1").bind("click",function(){
+					$("#a").toggle();
+				})
+				$("#img2").bind("click",function(){
+					$("#b").toggle();
+				})
+			})
+		</script>
+
+	</head>
+	<body>
+		<input type="button" value="第一个图片" id="img1" />
+		<img src="../Ch3JQuery操作DOM/image/a2.png" style="display: none;" id="a"/>
+		<input type="button" value="第二个图片" id="img2" />
+		<img src="../Ch3JQuery操作DOM/image/a1.png" id="b"/>
+	</body>
+</html>
+
+<!--
+	三：切换元素可见状态
+
+toggle() 显示就变成隐藏，隐藏加变成显示
+-->

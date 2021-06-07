@@ -1,0 +1,68 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-10 00:05:31
+ * @LastEditTime: 2020-12-22 15:04:38
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Web\JQuery基础\Ch2JQuery选择器\02层次选择器.html
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="a">
+			<ul>
+				<li>第1行</li>
+				<li>第2行</li>
+				<li>第3行</li>
+				<li>第4行</li>
+				<li>第5行</li>
+			</ul>
+		</div>
+		<div>BBBBBBBBBB</div>
+		<div>CCCCCCCCCC</div>
+	</body>
+</html>
+<script src="../JQ/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+		// ancestor descendant 选择器
+		
+		// ancestor 代表祖先 descendant 代表子孙
+		//$('ancestor descendent');
+		//$("ul li")匹配ul元素下的全部li元素
+		//在jQuery中，还可以使用find ()方法获取指定元素的后代元素。
+		// $("ul li").click(function(){
+		// 	$("ul li").hide();
+		// })
+		
+		// parent>child选择器
+		//在jQuery中，还可以使用children()方法代替子元素选择器，获取指定元素的子元素。
+		//$("parent > child")
+		// $("ul>li").click(function(){
+		// 	$("li").hide();
+		// })
+		
+		// prev+next选择器
+		// prev 和 next 是同级元素
+		// $("prev + next ")
+		// $("#a+div").click(function(){
+		// 	$("#a+div").hide();
+		// })
+		
+		//prev ~ siblings 选择器
+		//prev 和 siblings 是同辈元素
+		//匹配prev 后面所有的siblings元素
+		// $("#a~div").click(function(){
+		// 	$("#a~div").hide();
+		// })
+
+		//next()：可获取指定元素紧邻的下一个兄弟元素；
+		// nextAll()：可获取指定元素后的所有兄弟元素；
+		// siblings()：则可获取指定元素的所有兄弟元素。
+
+	})
+</script>

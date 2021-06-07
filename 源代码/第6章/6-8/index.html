@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<title>jQuery操作文本框</title>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#vbtn").click(function(){
+			if($("#testInput").val() != ""){
+				alert($("#testInput").val());        // 弹出文本框的值
+				$("#testInput").attr("disabled","disabled");   // 将文本框变为不可编辑状态
+			}else{
+				alert("请输入文本内容！");
+				$("#testInput").focus();             // 将焦点设置到文本框处
+				return false;
+			}
+		});
+		$("#dbtn").click(function(){
+			if($("#testInput").attr("disabled") == "disabled"){
+				$("#testInput").removeAttr("disabled");            // 移除文本框的disabled属性
+			}	
+		});
+	})
+</script>
+
+</head>
+
+<body>
+用户名：<input type="text" name="testInput" id="testInput" /> <br/><br/>
+<input type="submit" name="vbtn" id="vbtn" value="提交" /> &nbsp;
+<input type="button" name="dbtn" id="dbtn" value="修改" />
+</body>
+</html>

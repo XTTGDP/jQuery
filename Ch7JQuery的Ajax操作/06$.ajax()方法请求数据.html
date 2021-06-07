@@ -1,0 +1,93 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-16 23:54:14
+ * @LastEditTime: 2020-12-17 01:10:53
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Web\JQuery基础\Ch7JQuery的Ajax操作\06$.ajax()方法请求数据.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../JQ/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                type:"GET",
+                url:"06test.php",
+                data:{username:$("#username").val(),content:$("content").val()},
+                dataType:"json",
+                success:function(data,textStatus){
+                    //将用户提交的用户名和留言内容显示
+                    $("#responseText").html("用户名:"+data.username+"<br>留言内容:"+data.content);
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <form action="" name="form">
+        用户名: <input type="text" id="username"><br><br>
+        内容: <textarea id="content"></textarea><br><br>
+        <input type="button" id="button" value="提交"><br><br>
+        <div id="responseText"></div>
+    </form>
+</body>
+</html>
+
+<!--
+    $.ajax() 不仅可以方便实现上述3个全局函数完成的功能，而且可以更多的关注实现过程的细节。
+    $.ajax(option)
+        option为$.ajax()方法中的请求设置，格式为key/value,即包含发送请求的参数，也含有服务器响应后回调的数据
+    
+    $.ajax()方法中的参数列表
+    参数名称        数据类型        说明
+    url            String           发送请求的地址(默认为当前页面)
+
+    type           String           数据请求方式(get或post),默认为get
+
+    data           String或Object   发送到服务器的数据。如果不是字符串则自动转换成字符串格式，
+                                    如果是get请求方式，那么该字符串将附在URL后面
+
+    dataType       String           服务器返回的数据类型。如果没有指定，jQuery将自动根据HTTP包MIME信息自动判断，
+                                    服务器返回的数据根据自动判断结果进行解析，传递给回调函数。可用类型如下：
+                                    HTML:返回纯文本的HTML信息，包含的Script标记会在插入页面时被执行。
+                                    script:返回纯文本JavaScript代码
+                                    text:返回纯文本字符串
+                                    xml:返回可被jQuery处理的XML文档
+                                    json:返回JSON格式的数据
+                    
+    beforeSend      Function        该函数用于在发送请求前修改XMLHttpRequest对象，其中参数就是XMLHttpRequest对象，
+                                    由于该函数本身是jQuery事件，因此如果函数返回false，则表示取消本次事件。
+                                    function(XMLHttpRequest){
+                                        this;//调用本次Ajax请求时传递的options参数
+                                    }
+                            
+    complete        Function        请求完成后调用的回调函数，该函数无论数据发送成功或失败都会调用，其中有两个参数，
+                                    一个是XMLHttpRequest对象，另一个是textStatus,用来描述成功请求类型的字符串。
+                                    function(XMLHttpRequest){
+                                        this;//调用本次Ajax请求时传递的options参数
+                                    }
+
+    success         Function        请求成功后调用的回调函数，该函数有两个参数，
+                                    一个是根据dataType处理后服务器返回的数据，另一个是textStatus,用来描述状态的字符串。
+                                    function(data,textStatus){
+                                        1//data可能是xmlDOc、jsonObj、html、text等
+                                        this;//调用本次Ajax请求时传递的options参数
+                                    }
+
+    error           Function        请求失败后调用的回调函数，该函数有3个参数，
+                                    第一个是XMLHttpRequest对象。第二个是出错信息strError,第三个是捕捉到的错误对象strObject。
+                                    function(XMLHttpRequest,strError,strObject){
+                                        1//通常情况下strError,strObject只有一个包含信息
+                                        this;//调用本次Ajax请求时传递的options参数
+                                    }
+
+    global          Boolean         是否响应全局事件，默认是true,表示响应，如果设置成false，表示不响应，全局事件$.ajaxStart等将不响应
+
+    timeout         Number          请求超时的时间(毫秒),该设置将覆盖$.ajaxSetup()方法的全局设置
+
+-->

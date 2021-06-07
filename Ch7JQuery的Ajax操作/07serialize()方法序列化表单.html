@@ -1,0 +1,58 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-17 01:11:36
+ * @LastEditTime: 2020-12-17 01:34:27
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Web\JQuery基础\Ch7JQuery的Ajax操作\07serialize()方法序列化表单.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../JQ/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#button").click(function(){
+                $.post("07text.php",$("#testForm").serialize(),function(data){
+                    var html="";
+                    html+="用户名:"+data.username+"<br>";
+                    html+="性别:"+data.sex+"<br>";
+                    html+="年龄:"+data.age+"<br>";
+                    html+="邮箱:"+data.email+"<br>";
+                    html+="地址:"+data.address+"<br>";
+                    html+="内容:"+data.content+"<br>";
+                    $("#responseText").html(html);
+                },"json");
+            })
+        })
+    </script>
+</head>
+<body>
+    <form action="" id="testForm">
+        用户名: <input type="text" name="username"><br><br>
+        性别:   <input type="text" name="sex"><br><br>
+        年龄:   <input type="text" name="age"><br><br>
+        邮箱:   <input type="text" name="email"><br><br>
+        地址:   <input type="text" name="address"><br><br>
+        内容:   <textarea name="content" id="content"></textarea><br><br>
+        <input type="button" id="button" name="button" value="提交"><br><br>
+        <div id="responseText"></div>
+    </form>
+</body>
+</html>
+
+<!--
+    在使用全局函数$.get()和$.post()向服务器传递参数时，其中的参数是通过名称属性逐个搜索输入字段的方式进行传输
+    例如：
+        $.post("03post.php",{username:$("#username").val(),content:$("#content").val()},function(data,textStatus){
+            代码
+        })
+    
+    如果表单输入字段过多，这种方法过于笨重
+    jQuery使用\
+
+    serialize()方法作用于一个jQuery方法，可以将DOM元素内容序列化为字符串，用于Ajax请求
+-->

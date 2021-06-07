@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>显示文件上传的进度条</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn").click(function(){
+			var formdata = new FormData();  // 创建FormData对象
+			formdata.append("upload_file",document.getElementById("upload_file").files[0]);   // 向FormData中添加数据
+			var xmlhttp;
+			if(window.XMLHttpRequest){
+				xmlhttp = new XMLHttpRequest();
+			}else{
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.upload.addEventListener("progress",function(event){      // 为progress添加监听事件
+				if(event.lengthComputable){
+					var percentComplete = Math.round(event.loaded * 100 / event.total);
+					document.getElementById("pro_div").innerHTML = percentComplete.toString()+"%";    // 显示上传百分比
+					document.getElementById("progress").value = percentComplete;
+				}
+			},false);
+			xmlhttp.addEventListener("load",function(event){
+				document.write(event.target.responseText);
+			},false);
+			xmlhttp.addEventListener("error",function(event){
+				alert("上传出现错误！");
+			},false);
+			xmlhttp.addEventListener("abort",function(event){
+				alert("取消上传！");
+			},false);
+			xmlhttp.open("POST","upfile.php");
+			xmlhttp.send(formdata);
+		})
+	})
+</script>
+</head>
+
+<body>
+<h3>上传文件</h3>
+<form enctype="multipart/form-data">
+<p>请选择您要上传的文件</p>
+<input type="file" name="upload_file" id="upload_file"/><br/>
+<input type="button" name="btn" id="btn" value="上传" />
+</form>
+<progress id="progress" value="0" max="100"></progress>
+<div id="pro_div"></div>
+</body>
+</html>

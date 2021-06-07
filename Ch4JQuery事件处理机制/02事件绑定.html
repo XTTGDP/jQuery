@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		.content{
+			text-indent: 2em;
+			display: none;
+		}
+	</style>
+	<body>
+		<div id="first">
+			<h3 class="title">什么是JQuery?</h3>
+			<div class="content">JQuery是一套轻量级的JavaScript脚本库</div>
+		</div>
+	</body>
+</html>
+
+<script src="../JQ/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//bind()为元素绑定事件
+		// $("#first h3.title").bind("click",function(){
+		// 	$(this).next().show();
+		// })
+		// unbind()移出绑定
+		// $("#first h3.title").unbind("click");
+		// one绑定一次性事件处理
+		// $("div").one("click",function(){
+		// 	alert($(this).text());
+		// })
+		$("div").on("click",function(){
+			alert($(this).text());
+		})
+		$("div").off();
+		
+	})
+
+</script>  
+<!--
+
+bind()为元素绑定事件
+bind(type,[data],fn)
+type:事件类型
+data：作为even.data属性值传递给事件对象的额外数据对象。大多数情况不使用。
+fn：绑定事件的处理程序
+
+unbind()移出绑定
+unbind([type],[data]);
+type:可选参数，指定事件类型
+data:可选参数，用于指定要从每个匹配元素的事件反绑定的事件处理函数。
+unbind()不填参数，将会删除匹配元素上所有绑定的事件。
+
+one绑定一次性事件处理
+one(type,[data],fn)
+type:用于指定事件类型
+data:可选参数,作为event.data属性值传递给事件对象的额外数据对象
+fn:绑定到每个匹配元素的事件上面的处理函数
+
+on绑定一次或多次事件处理
+on(events,[selector],[data],fn)
+events:一个或多个用空格分隔的事件类型和可选的命名空间，如"click"事件
+selector:可选参数 绑定事件的一个或多个子元素
+data:当一个事件被触发时要传递event.data给事件处理函数
+fn:该事件触发时执行的函数。
+
+off移出一次或多次事件处理
+off(events,[selector],[fn])
+events:一个或多个用空格分隔的事件类型和可选的命名空间，如"click"事件
+selector:一个最初传递到on事件处理程序附加的选择器
+fn:该事件触发时执行的函数。
+-->

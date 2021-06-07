@@ -1,0 +1,50 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-08 19:49:42
+ * @LastEditTime: 2020-12-15 18:24:44
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Web\JQuery基础\Ch1初识JQuery\01JQuery对象与转换.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="a">人邮图书</h2>
+    <p>JQuery基础开发教程</p>
+</body>
+</html>
+<script src="../JQ/jquery-1.12.4.min.js"></script>
+<script>
+    // 界面加载完执行
+    // $(function(){})  === window.onload=function(){}
+    // 载入速度更快，可以多个
+    // $(document).ready(function){
+    //     alert('我的第一个JQ')
+    // }
+    // //只能一个
+    // $(function){
+    // }
+
+    // 用JQ获取对象   $('标签名，ID，类名')
+    // $(function(){
+    //     $('#a').click(function(){
+    //         $('#a').hide();
+    //     })
+    // });
+
+    // JQuery对象转换成DOM对象
+    // JQuery对象类似数组的对象，所以可以通过[index]，数组的方式获取相对因的DOM对象
+    // $(function(){
+    //     console.log($('#a')[0].innerHTML);
+    //     console.log($('p').get(0).innerHTML);
+    // });
+
+    // DOM对象转换成JQuery对象 ,只需要把DOM对象用$()包装起来，就是JQuery对象，即$(Dom对象)
+    // var a=document.getElementById('a');
+    // console.log($(a).html());
+</script>

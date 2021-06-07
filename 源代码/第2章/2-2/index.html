@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>DOM对象转换为jQuery对象</title>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	var domObj = document.getElementById("testp");
+	alert("使用DOM方法获取p节点的内容："+domObj.innerHTML);
+	var $jqueryObj = $(domObj);
+	alert("使用jQuery方法获取p节点的内容："+$jqueryObj.html());
+})	
+</script>
+</head>
+
+<body>
+<h2>明日图书</h2>
+<p id="testp">《JavaScript从入门到精通》</p>
+</body>
+</html>

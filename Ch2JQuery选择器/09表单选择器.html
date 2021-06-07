@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form>
+			复选框<input type="checkbox" />
+			单选框<input type="radio" />
+			图像域<input type="image" /><br />
+			文件域<input type="file" /><br />
+			密码域<input type="password" width="150px" /><br />
+			文本框<input type="text" width="150px" /><br />
+			按钮<input type="button" value="按钮" /><br />
+			重置<input type="reset" /><br />
+			提交<input type="submit" /><br />
+			隐藏域<input type="hidden" value="这是隐藏的元素" />
+			<div id=testDiv><font color="blue">隐藏域的值:</font></div>
+		</form>
+	</body>
+</html>
+<script src="../JQ/jquery-3.5.1.min.js"></script>
+<script>
+	$(function(){
+		$(":checkbox").attr("checked","checked");
+		$(":radio").attr("checked","true");
+		$(":image").attr("src","images/fish1.jpg");
+		$(":file").hide();
+		$(":password").val("123");
+		$(":text").val("文本框");
+		$(":button").attr("disabled","disabled");
+		$("reset").val("重置按钮");
+		$(":submit").val("提交按钮");
+		$("#testDiv").append($("input:hidden:eq(1)").val())
+	})
+</script>
+
+<!--
+:input 匹配所有的input元素  $(":input") 匹配所有的input元素
+						   $("form :input")匹配form标记中所有的input元素
+:button 匹配所有的普通按钮 即type="button" 的 input元素  $(":button")
+:checkbox 匹配所有的复选框  $(":checkbox") 
+:file 匹配所有的文件域  $(":file") 
+:hidden 匹配所有的不可见元素，或者type为hidden的元素  $(":hidden") 
+:image  匹配所有的图像域   $(":image") 
+:password 匹配所有的密码域  $(":password")
+:radio  匹配所有的单选按钮  $(":radio")
+:reset  匹配所有的重置按钮 即type="reset"的input元素 $(":reset")
+:submit 匹配所有的提交按钮 即type="submit"的input元素 $(":submit")
+:text   匹配所有的单行文本框  $(":text")
+-->

@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>筛选表格中的指定内容</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#keyword").keyup(function(){
+		if($("#keyword").val() != ''){
+			$("table tbody tr").hide().filter(":contains('"+($(this).val())+"')").show();   // 显示指定元素
+		}
+	})
+})
+</script>
+</head>
+<body>
+<table width="260" border="1" align="center">
+  <thead align="center" valign="bottom">
+  <tr>
+    <td colspan="2">搜索：<input type="text" name="keyword" id="keyword" /></td>
+  </tr>
+  	<tr bgcolor="#B2B2B2">
+    <td>姓名</td>
+    <td>成绩</td>
+  </tr>
+  </thead>
+  <tbody align="center" bgcolor="#FFFF88">
+  
+  <tr>
+    <td>王帅</td>
+    <td>97</td>
+  </tr>
+  <tr>
+    <td>李雷</td>
+    <td>91</td>
+  </tr>
+  <tr>
+    <td>高天</td>
+    <td>97</td>
+  </tr>
+  <tr>
+    <td>赵卫</td>
+    <td>84</td>
+  </tr>
+  <tr>
+    <td>王强</td>
+    <td>97</td>
+  </tr>
+  <tr>
+    <td>陈美</td>
+    <td>88</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

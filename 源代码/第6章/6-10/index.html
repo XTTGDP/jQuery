@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<title>控制评论框的滚动条</title>
+<style>
+.message{
+	width:320px;
+	font-size:12px;
+	border:1px solid #000000;
+}
+.tt{
+	padding:5px;
+}
+.msg_top{
+	margin-top:5px;
+}
+#bigBtn{
+	margin-left:180px;
+	font-size:10px;
+}
+#smallBtn{
+	margin-left:5px;
+	font-size:10px;
+}
+
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var $content = $("#content");   // 获取文本域对象
+		$("#upBtn").click(function(){  // 向上按钮单击事件
+			if(!$content.is(":animated")){    // 是否处于动画中
+				if($content.height() < 350){
+					$content.animate({scrollTop:"-=40"},500);
+				}
+			}
+		})
+		$("#downBtn").click(function(){ // 向下按钮单击事件
+		if(!$content.is(":animated")){   // 是否处于动画中
+			if($content.height() > 40){
+				$content.animate({scrollTop:"+=40"},500);
+			}
+		}
+		})
+	})
+</script>
+
+</head>
+
+<body>
+<div class="message">
+	<div class="msg_top">
+		<input type="button" value="向上" id="upBtn"/>&nbsp;&nbsp;<input type="button" value="向下" id="downBtn"/>
+	</div>
+	<div class="tt">
+		<textarea id="content" rows="4" cols="35">明日编程词典系列软件是由近百位软件开发专业人士联手打造，国内第一部为编程开发人员研制的编程专业软件。汇聚十多年软件开发经验和专业文档积累；提供价值百万的超值源代码；内置强大的智能搜索引擎，可以实现从文档到源代码的高效检索；包括技术文档、实例、项目、源码、视频、界面图片等海量开发资源，全方位解决开发人员的开发难题。
+		</textarea>
+	</div>
+</div>
+</body>
+</html>

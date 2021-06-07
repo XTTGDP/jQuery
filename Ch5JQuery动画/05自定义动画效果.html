@@ -1,0 +1,86 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-18 16:42:30
+ * @LastEditTime: 2020-12-24 10:35:25
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Web\JQuery基础\Ch5JQuery动画\05自定义动画效果.html
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#fish{
+				position: absolute;
+			}
+		</style>
+		<script src="../JQ/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			 $(document).ready(function(){
+				 // $("#fish").animate({left:300},1000)
+				 //  .animate({top:200},1000)
+				 //  .animate({left:0},200)
+				 //  .animate({top:0},200);
+				 //  $("#btn").click(function(){
+					//   $("#fish").stop(true,true);
+				 //  })
+				//  $("#fish").animate({left:300},1000)
+				// 		   .delay(300)
+				// 		   .animate({top:200},1000)
+				// 		   .delay(1500)
+				// 		   .animate({left:0},200)
+				// 		   .animate({top:0},200);
+				//  $("#btn").click(function(){
+				// 	$("#fish").stop(true,true);
+				// })
+			 });
+		</script>
+	</head>
+	<body>
+		<div id="fish">
+			<img src="../Ch3JQuery操作DOM/image/a1.png" >
+		</div>
+		<input type="button" id="btn" value="停止按钮" />
+	</body>
+</html>
+
+<!--
+	五：自定义的动画效果
+
+animate()方法创建自定义动画
+
+	animate(params,speed,callback);
+	params:表示一个包含属性和值的映射，可以同时包含多个属性，例如{left:"200px",top:"100px"}
+	speed:指定动画时长	三个默认值 show(600毫秒)	normal(400毫秒)	fast(200毫秒),可选参数
+	callback:指定运行完毕后触发的回调函数，可选参数
+	
+	使用animate()的元素，必须设置元素的定位属性position为relative或absoulte,元素才能移动。
+	
+	animate()方法中可以使用属性opacity来设置元素的透明度
+	如果在{lfet:400px}中的400px前加上"+="表示在当前位置上累加
+	
+stop()停止动画
+	
+	stop(clearQueue,gotoEnd);
+	clearQueue:表示是否清空尚未执行完的动画队列(值为true时表示清空动画队列)
+	gotoEnd:表示是否让正在执行的动画直接到达动画结束时的状态(值为true时表示直接到达动画结束时状态)
+			只有直接到达正在执行的动画的最终状态，并不能直接到达动画系列所设置的动画最终状态
+			
+使用animate()方法时，当用户快速在某个元素上执行animate()动画时，就会出现动画累积。
+解决方法：判断元素是否正在处于动画状态，如果不处于才为元素添加新的动画，否则不添加。
+if(!$(element).is(:animated)){}
+
+delay()延迟动画执行
+
+delay(speed)
+speed:延迟时间
+
+finish()停止当前正在执行的动画
+
+finish()可以停止当前运行的动画，并且删除所有其他的对话。
+
+stop(true,true)是将目前动画跳转到最终值
+finish()会导致全部动画跳转到最终值
+-->

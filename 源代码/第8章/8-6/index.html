@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css" />
+<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<title>菜单（Menu）的使用</title>
+<script>
+  $(function() {
+    $( "#menu" ).menu();
+  });
+  </script>
+  <style>
+  .ui-menu { width: 250px; }
+  </style>
+</head>
+<body>
+<ul id="menu">
+  <li>
+    <a href="#">光盘</a>
+    <ul>
+      <li class="ui-state-disabled"><a href="#">光盘使用说明</a></li>
+      <li><a href="#">源码</a></li>
+      <li><a href="#">PPT课件</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">文档</a>
+    <ul>
+      <li>
+        <a href="#">第一章</a>
+        <ul>
+          <li><a href="#">1.1  JavaScript简述</a></li>
+          <li><a href="#">1.2  编写JavaScript的工具</a></li>
+          <li><a href="#">1.3  编写第一个JavaScript程序</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">第二章</a>
+        <ul>
+          <li><a href="#">2.1  jQuery简介</a></li>
+          <li><a href="#">2.2  jQuery的下载与配置</a></li>
+          <li><a href="#">2.3  实战模拟：我的第一个jQuery脚本</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>

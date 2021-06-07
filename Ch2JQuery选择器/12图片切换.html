@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		a{
+			display: block;
+			text-decoration: none;
+			color: #000000;
+		}
+		a:hover{
+			background-color: pink;
+		}
+	</style>
+	<script src="../JQ/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			$('.L1>a').mouseenter(function(){
+				i=$(this).index()+1+'.jpg'
+				document.getElementById("mg").src='../img/'+i
+			})
+			$('.R1>a').mouseenter(function(){
+				i=$(this).index()+6+'.jpg'
+				document.getElementById("mg").src='../	img/'+i
+			})
+		})
+	</script>
+	<body>
+		<p id="pp"></p>
+		<table>
+			<tr>
+				<td class="L1">
+					<a href="">图片1</a>
+					<a href="">图片2</a>
+					<a href="">图片3</a>
+					<a href="">图片4</a>
+					<a href="">图片5</a>
+				</td>
+
+				<td>
+					<img id="mg" src="../img/10.jpg" width="100px" height="100px" />
+				</td>
+
+				<td class="R1">
+					<a href="">图片1</a>
+					<a href="">图片2</a>
+					<a href="">图片3</a>
+					<a href="">图片4</a>
+					<a href="">图片5</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>使用each()方法img遍历元素</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+   $("img").each(function(index){
+	  $(this).attr("title","第"+(index+1)+"张图片");
+   })
+});
+
+</script>
+
+</head>
+
+<body>
+    <img height=60 src="images/01.jpg" width=80 />
+    <img height=60 src="images/02.jpg" width=80 />
+    <img height=60 src="images/03.jpg" width=80 />
+    <img height=60 src="images/04.jpg" width=80 />
+    <img height=60 src="images/05.jpg" width=80 />
+</body>
+</html>

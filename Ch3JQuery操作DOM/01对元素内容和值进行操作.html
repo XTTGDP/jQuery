@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div><span id="clock1">2020年9月13日13:08:54</span></div>
+		<div><span id="clock2">2020年9月13日13:08:54</span></div>
+		
+<!-- 		<div id="div1"><span id="clock">2020年9月13日13:35:13</span></div>
+		<div id="div2"><span id="clock">2020年9月13日13:35:13</span></div>
+		<input type="text" />
+		<select name="like" size="3" multiple="multiple" id="like">
+			<option>列表项1</option>
+			<option selected="selected">列表项2</option>
+			<option selected="selected">列表项3</option>
+		</select> -->
+		
+	</body>
+</html>
+<script src="../JQ/jquery-3.5.1.min.js"></script>
+<script>
+	$(function(){
+		console.log($("div").text());
+		$("div").text("我是通过text()方法设置的文本内容")
+		// alert($('div').html());
+		// $("div").html("<span style='color:#FF0000'>我是通过html()方法设置的HTML内容</span>")
+		
+		// $("#div1").text("<span style='color:#FF0000'>我是通过text()方法设置的HTML内容</span>")
+		// $("#div2").html("<span style='color:#FF0000'>我是通过html()方法设置的HTML内容</span>")
+		// alert("通过text()方法获取:"+$("div").text()+"通过html()方法获取"+$("div").html())
+		
+		// $("input:text").val("22222")
+		// $("select").val(["列表项1","列表项2"]);
+		// alert($("select").val());
+	})
+</script>
+<!--
+1.用text()方法对文本内容的操作
+
+text()用于获取全部匹配元素的文本内容
+text()方法取得的结果是所有匹配元素包含的文本的组合起来的文本元素
+也可以对XML文档进行解析
+
+
+text(val)用于设置全部匹配元素的文本内容
+text(val)重新设置div元素的文本内容。div原来的内容将会被新设置的内容替换掉。包括HTML内容
+
+2.用html()方法对HTML内容的操作、
+html()方法不能同于XML文档，但是可以用于XHTML文档 
+
+html()获取第一个匹配元素的HTML内容
+
+html(val)用于设置全部匹配元素的HTML内容 
+
+3.JQuery提供的3种对元素值操作的方法
+
+val()  用于获取第一个匹配元素的当前值，返回值可以是一个字符串，也可以是一个数组。 $("#username").val();获取ID为username的值
+
+val(val)  用于设置所有匹配元素的值  $("input:text").val("新值") 为全部文本框设置值
+
+val(arrVal)  用于为check、select和radio等元素设置值，参数为字符串数组。   $("select").val(['列表项1','列表项2'])为下拉框设置多选值
+
+
+-->

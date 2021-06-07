@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>jQuery操作下拉框</title>
+	<style>
+		.first{
+			float:left;
+			font-size:12px;
+		}
+		.second{
+			padding-left:110px;
+			font-size:12px;
+		}
+		.sel{
+			width:80px;
+			height:150px;
+		}
+		.sd{
+			padding-top:10px;
+		}
+	</style>
+	<script type="text/javascript" src="../JQ/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#add").click(function(){
+				var $options = $("#hobby option:selected");   // 获取左边选中项
+				$options.appendTo("#other");                  // 追加到右边
+			})
+			$("#add_all").click(function(){
+				var $options = $("#hobby option");            // 获取全部选项
+				$options.appendTo("#other");                  // 追加到右边
+			})
+			$("#hobby").dblclick(function(){                  // 鼠标双击事件
+				var $options = $("option:selected",this);     // 获取选中项
+				$options.appendTo("#other");                  // 追加到右边
+			})
+			
+			$("#to_left").click(function(){                   
+				var $options = $("#other option:selected");   // 获取右边选中项
+				$options.appendTo("#hobby");                  // 追加到左边
+			})
+			$("#all_to_left").click(function(){
+				var $options = $("#other option");            // 获取全部选项
+				$options.appendTo("#hobby");                  // 追加到左边
+			})
+			$("#other").dblclick(function(){                  // 鼠标双击事件
+				var $options = $("option:selected",this);     // 获取选中项
+				$options.appendTo("#hobby");                  // 追加到左边
+			})
+		})
+	</script>
+</head>
+
+<body>
+	<div class="first">
+		<select multiple name="hobby" id="hobby" class="sel">
+			<option value="游泳">游泳</option>
+			<option value="足球">足球</option>
+			<option value="篮球">篮球</option>
+			<option value="跑步">跑步</option>
+			<option value="滑冰">滑冰</option>
+			<option value="乒乓球">乒乓球</option>
+			<option value="游泳">游泳</option>
+			<option value="跳远">跳远</option>
+			<option value="跳高">跳高</option>
+		</select>
+		<div class="sd">
+			<button id="add">添加>></button><br/><br/>
+			<button id="add_all">全部添加>></button>
+		</div>
+	</div>
+	<div class="second">
+		<select multiple name="other" id="other" class="sel"></select>
+		<div class="sd">
+			<button id="to_left"><<删除</button><br/><br/>
+			<button id="all_to_left"><<全部删除</button>
+		</div>
+	</div>
+</body>
+</html>

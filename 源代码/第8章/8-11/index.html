@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css" />
+<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<title>工具提示框（Tooltip）的使用</title>
+<style>
+  .player {
+    width: 450px;
+    height: 300px;
+    border: 2px groove gray;
+    text-align: center;
+    line-height: 300px;
+  }
+  .ui-tooltip {
+    border: 1px solid white;
+    background: rgba(20, 20, 20, 1);
+    color: white;
+  }
+  .set {
+    display: inline-block;
+  }
+  </style>
+    <script>
+  $(function() {
+    $( "button" ).each(function() {                                 // 遍历<button>元素
+      var button = $(this).button({
+        icons: {
+          primary: $(this).data("icon")                             // 带图标
+        },
+        text: $(this).attr("title")?$( this ).attr("title"):""   // 按钮的title存在，文本为title值。否则为空
+      });
+     
+    });
+  
+    $( document ).tooltip({
+      show: {
+        duration: "fast"    // 快速显示提示信息
+      }
+    });
+  });
+  </script>
+</head>
+<body>
+ 
+<div class="player" style="background-image:url(back.jpg)"></div>
+<div class="tools">
+  <span class="set">
+    <button data-icon="ui-icon-circle-arrow-n" title="我喜欢这个视频">喜欢</button>
+    <button data-icon="ui-icon-circle-arrow-s">我不喜欢这个视频</button>
+  </span>
+  <div class="set">
+    <button data-icon="ui-icon-circle-plus" title="添加到播放列表">添加到</button>
+    <button class="menu" data-icon="ui-icon-triangle-1-s">添加到收藏夹</button>
+  </div>
+  <button title="分享这个视频">分享</button>
+  <button data-icon="ui-icon-alert">标记为不恰当</button>
+</div>
+ 
+ 
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery绑定事件</title>
+<style>
+#content{
+	text-indent:2em;
+	display:none;
+}
+</style>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+		$("#first h3.title").bind("click",function(){
+			$(this).next().show();
+		})
+   });
+</script>
+
+</head>
+
+<body>
+<div id="first">
+<h3 class="title">什么是编程词典？</h3>
+<div id="content">明日编程词典系列软件是由近百位软件开发专业人士联手打造；国内第一部为编程开发人员研制的编程专业软件；汇聚十多年软件开发经验和专业文档积累；提供价值百万的超值源代码；内置强大的智能搜索引擎，可以实现从文档到源代码的高效检索；个人版，珍藏版现已震撼热卖！</div>
+</div>
+</body>
+</html>

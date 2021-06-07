@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>对元素内容操作的示例</title>
+<style>
+body{
+	font-size:12px;
+}
+</style>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+		$("#div1").text("<span style='color:#FF0000'>我是通过text()方法设置的HTML内容</span>");
+		$("#div2").html("<span style='color:#FF0000'>我是通过html()方法设置的HTML内容</span>");
+		alert("通过text()方法获取：\r\n"+$("div").text()+"\r\n通过html()方法获取：\r\n"+$("div").html());
+   });
+</script>
+
+</head>
+
+<body>
+应用text()方法设置的内容
+<div id="div1">
+<span id="clock">当前时间：2014-07-06 星期日 13:20:10</span>
+</div>
+<br />应用html()方法设置的内容
+<div id="div2">
+<span id="clock">当前时间：2014-07-06 星期日 13:20:10</span>
+</div>
+</body>
+</html>

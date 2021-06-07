@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<title>HTML5本地存储</title>
+<style>
+.dhead{
+	margin:0 auto;
+	width:754px;
+	height:57px;
+	background:url("images/b_03.jpg") no-repeat;
+}
+#ddiv{
+	margin:0 auto;
+	width:754px;
+	background:url("images/a_05.jpg") repeat-y;
+}
+.dcon{
+	width:754px;
+	padding-top:20px;
+	padding-left:200px;
+}
+.dfoot{
+	margin:0 auto;
+	width:754px;
+	height:35px;
+	background:url("images/a_07.jpg") no-repeat;
+}
+</style>
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	$("input[type=text],textarea").change(function(){        // 当文本框和文本域内容变化时
+		localStorage[$(this).attr("name")] = $(this).val();  // 将当前元素的值写入键值为当前元素name值的localStorage中
+	})
+	if(localStorage){                                        // 如果存在localStorage
+		if(localStorage.username){                           // 如果localStorage中存在username的值
+			$("#username").val(localStorage.username);       // 将用户名的值设置为localStorage中username的值
+		}
+		if(localStorage.title){                              // 如果localStorage中存在title的值
+			$("#title").val(localStorage.title);             // 将标题的值设置为localStorage中title的值
+		}
+		if(localStorage.content){                            // 如果localStorage中存在content的值
+			$("#content").val(localStorage.content);         // 将留言内容设置为localStorage中content的值
+		}
+	}
+})
+</script>
+</head>
+
+<body>
+<h2 align="center">HTML5 本地存储示例</h2>
+<table width="761" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#FEFEFE" bgcolor="#FFFFFF">
+  <form action=""  method="post" name="form1" id="form1">
+    <tr>
+      <td width="761" align="center" bgcolor="#F9F8EF"><table width="749" border="0" align="center" cellpadding="0"  cellspacing="0"  style="BORDER-COLLAPSE: collapse">
+        <tr>
+          <td width="749" height="57" background="images/a_03.jpg">&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="36" colspan="3" align="left" background="images/a_05.jpg" bgcolor="#F9F8EF" scope="col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用&nbsp;户&nbsp;名：
+            <input  name="username" id="username" value="" maxlength="64" type="text" />
+                </td>
+        </tr>
+        <tr>
+          <td height="36" colspan="3" align="left" background="images/a_05.jpg" bgcolor="#F9F8EF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标&nbsp;&nbsp;　题：
+            <input maxlength="64" size="30" name="title" id="title" type="text"/>
+                </td>
+        </tr>
+        <tr>
+          <td height="126" colspan="3" align="left" background="images/a_05.jpg" bgcolor="#F9F8EF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内&nbsp;&nbsp;容：
+            <textarea name="content" cols="60" rows="8" id="content" style="background:url(./images/mrbccd.gif)"></textarea>
+               
+				 <table width="734" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="703" height="40" align="center"><input name="button" type="button" id="button" value="填写留言"/>
+            </tr>
+        </table>
+				</td>
+        </tr>
+        <tr>
+          <td height="35" background="images/a_07.jpg">&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+	  </td>
+    </tr>
+    </form>
+</table>
+  
+</body>
+</html>

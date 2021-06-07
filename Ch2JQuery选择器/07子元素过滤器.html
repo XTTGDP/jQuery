@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script src="../JQ/jquery-3.5.1.min.js"></script>
+<script>
+	
+</script>
+<!--
+:first-child    匹配所有给定元素的第1个子元素	$("ul li:first-child")  匹配ul元素中的第1个子元素li
+:last-child 	匹配所有给定元素的最后1个子元素  	$("ul li:lsat-child")匹配ul元素中的最后1个子元素li
+:only-child 	如果某个元素是它父元素中唯一的子元素，那么将被匹配。如果父元素中含有其他元素，则不会被匹配。$("ul li:only-child") 匹配只含有一个li元素的ul元素中的li
+
+:nth-child(index/even/odd/equation) 匹配每个父元素下的第index个子或奇偶元素，index从1开始，而不是从0开始。 $("ul li:nth-child(even)") 匹配ul中索引值为偶数的li元素
+																									  $("ul li:nth-child(3)")匹配ul第三个li元素
+																									  
+:first-of-type 结构化伪类,匹配E的父元素的第一个E类型的孩子。
+:last-of-type  结构化伪类,匹配E的父元素的最后一个E类型的孩子。
+
+:nth-last-child(n|even|odd|formula)选择所有它们父元素的第n个子元素。计数从最后一个元素开始到第一个元素。 $("ul li:nth-last-child(2)");在每个匹配的ul中查找倒数第2个li
+:nth-last-of-type(n|even|odd|formula)选择所有它们的父级元素的第n个子元素。计数从最后一个元素开始到第一个元素 $("ul li:nth-last-of-type(2)")在每个匹配的ul中查找倒数第二个li
+:nth-of-type(n|even|odd|formula)选择同属于一个父元素之下，并且标签名相同的子元素中的第n个  $("span:nth-of-type(2)")查找每个span ，这span是其所有兄弟span元素中的第二个元素
+
+:only-of-type 选择所有没有兄弟元素，且具有相同的元素名称的元素。		如果父元素有相同的元素名称的其他子元素，那么没有元素会被匹配
+-->

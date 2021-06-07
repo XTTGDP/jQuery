@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>使用ajaxStart与ajaxStop全局事件添加提示信息</title>
+<style>
+	#msg{
+		display:none;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+		$(document).ajaxStart(function(){
+			$("#msg").show();    // 显示数据
+		})
+		$(document).ajaxStop(function(){
+			$("#msg").html("数据获取成功").slideUp(200);  // 改变提示信息并隐藏信息提示
+		})
+		$(document).ready(function(){
+			$("#button").click(function(){
+			$.post("index.php",$("#testForm").serialize(), // 序列化表单
+			function(data){
+				var html = "";
+				html+="用户名："+data.username+"<br/>";
+				html+="性别："+data.sex+"<br/>";
+				html+="年龄："+data.age+"<br/>";
+				html+="邮箱："+data.email+"<br/>";
+				html+="地址："+data.address+"<br/>";
+				html+="内容："+data.content+"<br/>";
+				 $("#responseText").html(html);     // 将用户提交的用户名与留言内容显示
+			},"json");
+		})
+	})
+</script>
+</head>
+
+<body>
+<div id="msg">数据正在发送……</div>
+<form id="testForm" action="">
+	用户名：<input type="text"  name="username"/><br/><br/>
+	性别：<input type="text"  name="sex"/><br/><br/>
+	年龄：<input type="text"  name="age"/><br/><br/>
+	邮箱：<input type="text"  name="email"/><br/><br/>
+	地址：<input type="text"  name="address"/><br/><br/>
+	内容：<textarea id="content" name="content"></textarea><br/><br/>
+	<input type="button" id="button" name="button" value="提交"/><br/><br/>
+	<div id="responseText"></div>
+</form>
+</body>
+</html>

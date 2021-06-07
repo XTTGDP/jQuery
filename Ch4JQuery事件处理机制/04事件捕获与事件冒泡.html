@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.redBorder{
+				border: 1px solid red;
+			}
+			.test1{
+				width: 240px;
+				height: 150px;
+				background-color: #cef;
+				text-align: center;
+			}
+			.test2{
+				width: 160px;
+				height: 100px;
+				background-color: pink;
+				text-align: center;
+				line-height: 20px;
+				margin: 10px auto;
+			}
+			span{
+				width: 100px;
+				height: 35px;
+				background-color: #fff;
+			}
+			body{
+				font-size: 12px;
+			}
+		</style>
+		<script src="../JQ/jquery-3.5.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(".test1").on({"mouseover":function(event){
+					$(".test1").addClass("redBorder");
+					event.stopPropagation();//阻止冒泡
+				},"mouseout":function(event){
+					$(".test1").removeClass("redBorder");
+					event.stopPropagation();//阻止冒泡
+				}});
+				
+				$(".test2").on({"mouseover":function(event){
+					$(".test2").addClass("redBorder");
+					event.stopPropagation();//阻止冒泡
+				},"mouseout":function(event){
+					$(".test2").removeClass("redBorder");
+					event.stopPropagation();//阻止冒泡
+				}});
+				
+				$("span").on({"mouseover":function(event){
+					$("span").addClass("redBorder");
+					event.stopPropagation();//阻止冒泡
+				},"mouseout":function(event){
+					$("span").removeClass("redBorder");
+					event.stopPropagation();//阻止冒泡
+				}})
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div class="test1">
+			<b>div元素</b>
+			<p class="test2">
+				<b>P元素</b>
+				<span><b>span元素</b></span>
+			</p>
+		</div>
+	</body>
+</html>

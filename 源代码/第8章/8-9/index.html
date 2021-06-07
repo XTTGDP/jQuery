@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css" />
+<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<title>旋转器（Spinner）的使用</title>
+<script>
+  $(function() {
+    $( "#spinner" ).spinner({
+      min: 10,          // 最小值为10
+      max: 2500,        // 最大值为2500
+      step: 10,         // 步长为10
+    });
+  });
+  </script>
+</head>
+<body>
+<p>
+  <label for="currency">选择捐款币种：</label>
+  <select id="currency" name="currency">
+    <option value="en-US">美元 $</option>
+    <option value="ja-JP">人民币 ¥</option>
+  </select>
+</p>
+<p>
+  <label for="spinner">设置捐款额：</label>
+  <input id="spinner" name="spinner" value="10">
+</p>
+</body>
+</html>

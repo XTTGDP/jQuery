@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>会员注册</title>
+		<link rel="stylesheet" type="text/css" href="css/register.css">
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/12-1/register.js"></script>
+	</head>
+	<body>
+		<div id="top">
+
+			<div id="top1">
+				<a id="login" href="Login.html">登录</a>
+				<a>|</a>
+				<a id="a1">客服中心</a>
+			</div>
+		</div>
+		<!--填写部分-->
+		<div id="center" style="display: block;">
+			<div id="center1">
+				<div class="center1-1">
+					<span class="span1" id="span1"></span>
+					<span class="span2" id="span2"></span>
+					<font id="font1">填写</font>
+				</div>
+				<div class="center1-1">
+					<span class="span1" id="span3"></span>
+					<span class="span2" id="span4"></span>
+					<font id="font2">验证</font>
+				</div>
+				<div class="center1-2">
+					<span class="span1" id="span5"></span>
+					<span class="span2" id="span6"></span>
+					<font id="font3">注册成功</font>
+				</div>
+			</div>
+			<div id="center2">
+				<img src="imgs/img/huiyuan.png" /><br />
+				<a>合作卡会员注册 ></a>
+			</div>
+			<div id="center3">
+				<span>会员注册</span>
+				<a>注册成功可获<font id="jf">1000</font>积分 + <font id="fx">返现</font>特权！</a>
+			</div>
+			<!--手机号文本框-->
+			<div id="input">
+				<span class="name">手机号</span>
+				<input type="text" id="phone" class="text" placeholder=" 可用作登录名" />
+			</div>
+			<div class="prompt" id="div1" style="display: none;">
+				<img src="imgs/img/tip.png" />
+				<span id="prompt1"></span>
+			</div>
+			<!--Email文本框-->
+			<div class="input">
+				<span class="name">Email</span>
+				<input type="text" id="Emails" class="text" placeholder=" 可用作登录名" />
+				<span id="email">&nbsp;&nbsp;填写Email并通过验证，可额外获得<font>200</font>积分！</span>
+			</div>
+			<div class="prompt" id="div2" style="display: none;">
+				<img src="imgs/img/tip.png" />
+				<span id="prompt2"></span>
+			</div>
+			<!--密码文本框-->
+			<div class="input">
+				<span class="name">密码</span>
+				<input type="password" id="password" class="text" placeholder=" 8-20位字母、数字和符号" />
+				<span class="grade" id="grade1">弱</span>
+				<span class="grade" id="grade2">中</span>
+				<span class="grade" id="grade3">强</span>
+			</div>
+			<div class="prompt" id="div3" style="display: none;">
+				<img src="imgs/img/tip.png" />
+				<span id="prompt3"></span>
+			</div>
+			<!--确认密码框-->
+			<div class="input">
+				<span class="name">确认密码</span>
+				<input type="password" id="password1" class="text" placeholder=" 再次输入密码" />
+			</div>
+			<div class="prompt" id="div4" style="display: none;">
+				<img src="imgs/img/tip.png" />
+				<span id="prompt4"></span>
+			</div>
+			<label id="check"><input type="checkbox" checked="checked"><a>同意<span>《携程旅游网服务协议》</span></a></label><br />
+			<input id="btn" type="button" value="下一步，验证" onclick="xyb()"/><br />
+			<span id="next_step">注册遇到问题？</span>
+		</div>
+		<!--底部-->
+		<div id="button">
+			<span>
+				<a class="aa1">网站导航</a>
+				<a class="aa1">宾馆索引</a>
+				<a class="aa1">服务说明</a>
+				<a class="aa1">关于携程</a>
+				<a class="aa1">企业公民</a>
+				<a class="aa1">诚聘英才</a>
+				<a class="aa1">分销联盟</a>
+				<a class="aa1" id="a6">企业礼品卡采购</a>
+				<a class="aa1">代理合作</a>
+				<a class="aa1">广告业务</a>
+				<a class="aa1">联系我们</a>
+				<a class="aa1" id="a7">我要提建议</a>	
+			</span>
+			<p>Copyright© 1999-2017, ctrip.com. all rights reserved. </p>
+		</div>
+	</body>
+</html>

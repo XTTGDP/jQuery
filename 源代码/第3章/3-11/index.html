@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>内容过滤器的示例</title>
+<style type="text/css">
+	td{
+		font-size:12px;		/*设置单元格的样式*/
+		padding:3px;		/*设置内边距*/
+		background-color:#F9FCEF;	/*设置背景颜色*/
+	}
+</style>
+
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("td:parent").css("background-color","#E8F3D1");	//为不为空的单元格设置背景颜色
+		$("td:empty").html("暂无内容");	//为空的单元格添加默认内容
+		$("td:contains('轻鸿')").css("color","red");	//将含有文本轻鸿的单元格的文字颜色设置为红色
+	});
+</script>
+</head>
+<body>
+	<table width="98%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#3F873B">
+      <tr>
+        <td width="11%" height="27" align="center">编号</td>
+        <td width="14%" align="center">祝福对象</td>
+        <td width="12%" align="center">祝福者</td>
+        <td width="33%" align="center">字条内容</td>
+        <td width="30%" align="center">发送时间</td>
+      </tr>
+      <tr>
+        <td height="27">1</td>
+        <td>琦琦</td>
+        <td>妈妈</td>
+        <td>愿你健康快乐的成长！</td>
+        <td>2014-08-15 13:06:06</td>
+      </tr>
+      <tr>
+        <td height="27">2</td>
+        <td>wgh</td>
+        <td>无语</td>
+        <td>每天有份好心情！</td>
+        <td>2014-08-15 13:26:17</td>
+      </tr>
+      <tr>
+        <td height="27">3</td>
+        <td>轻鸿</td>
+        <td>Blue</td>
+        <td>梦想，不论大小，都给它一个可以绽放的机会！</td>
+        <td>2014-08-15 13:36:06</td>
+      </tr>
+      <tr>
+        <td height="27">4</td>
+        <td>明日科技</td>
+        <td>轻鸿</td>
+        <td></td>
+        <td>2014-08-15 13:46:06</td>
+      </tr>
+  </table>
+</body>
+</html>

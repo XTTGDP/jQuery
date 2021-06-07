@@ -1,0 +1,53 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-18 16:23:24
+ * @LastEditTime: 2020-12-24 08:23:42
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \Web\JQuery基础\Ch5JQuery动画\04滑动效果.html
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../JQ/jquery-3.5.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				// $("#ad").slideDown(600);
+				// $("#ad").slideUp(600);
+				$("#ad").slideToggle(600);
+			})
+		</script>
+	</head>
+	<body>
+		<div>
+			<!-- <div id="ad" style="display: none;">莫凡魔方科技</div> -->
+			<div id="ad">莫凡魔方科技</div>
+			莫凡图书
+		</div>
+	</body>
+</html>
+
+<!--
+	四：滑动效果
+
+slideDown()方法(用于显示匹配的元素)
+	向下增加元素高度，动态显示匹配的元素。
+	逐渐向下增加匹配的隐藏元素的高度，直到元素完全显示
+	
+slideDown(speed,[callback]);
+spped：指定动画时长	三个默认值 show(600毫秒)	normal(400毫秒)	fast(200毫秒)
+callback指定显示完成后触发的回调函数
+
+slideUp()方法(用于滑动隐藏的元素)
+	向上减少元素高度，动态隐藏匹配元素。
+	逐渐向上减少匹配显示元素的高度，直到元素完全隐藏
+slideUp(speed,[callback]);
+spped：指定动画时长	三个默认值 show(600毫秒)	normal(400毫秒)	fast(200毫秒)
+callback指定隐藏完成后触发的回调函数
+
+
+slideToggle()方法(用于通过高度的变化动态切换元素的可见性)
+显示就变成隐藏，隐藏加变成显示
+-->

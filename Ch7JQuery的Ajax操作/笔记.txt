@@ -1,0 +1,128 @@
+load方法可以快速实现获取异步数据的功能。
+load(url[,data][,callback])
+参数说明：
+    url:请求HTML页面的URL地址
+    data:可选参数。发送至服务器的key/value数据
+    callback:可选参数。请求完成时的回调函数，无论请求是否成功。
+
+02$.get方法请求数据
+    $.get()方法使用get方式进行异步请求
+    $.get(url[,data][,callback][,type])
+        url:请求的HTML页面的URL地址
+        data:可选参数，发送到服务器的数据
+        callback:可选参数，规定当请求成功时运行的函数
+        type:可选参数，预计的服务器响应的数据类型。默认地，JQuery将智能判断
+
+03$.post方法请求数据
+    $.post(url[,data][,callback][,type])
+        url:请求的HTML页面的URL地址
+        data:可选参数，发送到服务器的数据
+        callback:可选参数，规定当请求成功时运行的函数
+        type:可选参数，预计的服务器响应的数据类型。默认地，JQuery将智能判断
+
+
+post和get传递数据的不同
+    get传递2KB以下的数据，数据追加到URL中发送。会被游览器缓存起来。这样别人也可以从游览器的历史读取到客户端的信息，有安全隐患。
+        
+    post传递时，不在URL中，而是将数据作为HTTP消息实体发送给web服务器，避免数据被游览器缓存，比get方式更安全，数据量更多。
+
+04$.getScript方法加载JS文件
+    在页面获取JS文件的内容方法
+        <script src="JS文件"></script>
+        或者
+        $("<script src="JS文件">").appendTo("head");
+        
+        但这样的方法都不是最理想的，在jQuery中，通过全局函数getScript()加载JS文件后，不仅可以像加载HTML片段一样简单方便，而且JavaScript会自动执行
+        大大提高了页面的执行效率。
+        $("#btn").click(function(){
+            $.getScript("JS文件")
+        })
+        getScript()方法还具备回调函数，在JS文件成功载入后执行
+
+05$.getJSON方法加载JSON文件
+    在页面获取JSON文件的内容
+        $("#btn").click(function(){
+            $.getJSON("JSON文件",回调函数)
+        })
+        getJSON()方法还具备回调函数，在JSON文件成功载入后执行 
+
+06$.ajax()方法请求数据
+    $.ajax() 不仅可以方便实现上述3个全局函数完成的功能，而且可以更多的关注实现过程的细节。
+        $.ajax(option)
+            option为$.ajax()方法中的请求设置，格式为key/value,即包含发送请求的参数，也含有服务器响应后回调的数据
+        
+        $.ajax()方法中的参数列表
+        参数名称        数据类型        说明
+        url            String           发送请求的地址(默认为当前页面)
+
+        type           String           数据请求方式(get或post),默认为get
+
+        data           String或Object   发送到服务器的数据。如果不是字符串则自动转换成字符串格式，
+                                        如果是get请求方式，那么该字符串将附在URL后面
+
+        dataType       String           服务器返回的数据类型。如果没有指定，jQuery将自动根据HTTP包MIME信息自动判断，
+                                        服务器返回的数据根据自动判断结果进行解析，传递给回调函数。可用类型如下：
+                                        HTML:返回纯文本的HTML信息，包含的Script标记会在插入页面时被执行。
+                                        script:返回纯文本JavaScript代码
+                                        text:返回纯文本字符串
+                                        xml:返回可被jQuery处理的XML文档
+                                        json:返回JSON格式的数据
+                        
+        beforeSend      Function        该函数用于在发送请求前修改XMLHttpRequest对象，其中参数就是XMLHttpRequest对象，
+                                        由于该函数本身是jQuery事件，因此如果函数返回false，则表示取消本次事件。
+                                        function(XMLHttpRequest){
+                                            this;//调用本次Ajax请求时传递的options参数
+                                        }
+                                
+        complete        Function        请求完成后调用的回调函数，该函数无论数据发送成功或失败都会调用，其中有两个参数，
+                                        一个是XMLHttpRequest对象，另一个是textStatus,用来描述成功请求类型的字符串。
+                                        function(XMLHttpRequest){
+                                            this;//调用本次Ajax请求时传递的options参数
+                                        }
+
+        success         Function        请求成功后调用的回调函数，该函数有两个参数，
+                                        一个是根据dataType处理后服务器返回的数据，另一个是textStatus,用来描述状态的字符串。
+                                        function(data,textStatus){
+                                            1//data可能是xmlDOc、jsonObj、html、text等
+                                            this;//调用本次Ajax请求时传递的options参数
+                                        }
+
+        error           Function        请求失败后调用的回调函数，该函数有3个参数，
+                                        第一个是XMLHttpRequest对象。第二个是出错信息strError,第三个是捕捉到的错误对象strObject。
+                                        function(XMLHttpRequest,strError,strObject){
+                                            1//通常情况下strError,strObject只有一个包含信息
+                                            this;//调用本次Ajax请求时传递的options参数
+                                        }
+
+        global          Boolean         是否响应全局事件，默认是true,表示响应，如果设置成false，表示不响应，全局事件$.ajaxStart等将不响应
+
+        timeout         Number          请求超时的时间(毫秒),该设置将覆盖$.ajaxSetup()方法的全局设置
+
+07serialize()方法序列化表单
+    在使用全局函数$.get()和$.post()向服务器传递参数时，其中的参数是通过名称属性逐个搜索输入字段的方式进行传输
+        例如：
+            $.post("03post.php",{username:$("#username").val(),content:$("#content").val()},function(data,textStatus){
+                代码
+            })
+        
+        如果表单输入字段过多，这种方法过于笨重
+        jQuery使用\
+
+        serialize()方法作用于一个jQuery方法，可以将DOM元素内容序列化为字符串，用于Ajax请求
+
+08Ajax全局事件
+        事件名称                        参数            说明
+    ajaxComplete(callback)          callback        Ajax请求完成时执行的函数
+    
+    ajaxError(callback)             callback        Ajax请求发生错误时执行的函数，
+                                                    其中捕获到的错误可以作为最后一个参数进行传递
+                                                
+    ajaxSend(callback)              callback        Ajax请求发送前执行的函数
+
+    ajaxStart(callback)             callback        Ajax请求开始时执行的函数
+
+    ajaxStop(callback)              callback        Ajax请求结束时执行的函数
+
+    ajaxSuccess(callback)           callback        Ajax请求成功时执行的函数
+
+    在jQuery中，所有的全局事件都是以XMLHttpRequest对象和其设置作为参数传递给回调函数的，在处理回调函数时，只要分析其传回的参数值即可。

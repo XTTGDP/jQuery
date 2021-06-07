@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<table width="98%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#3F873B">
+			<tr>
+				<td width="11%" class="head" height="27" align="center">编号</td>
+				<td width="14%" class="head" align="center">祝福对象</td>
+				<td width="12%" class="head" align="center">祝福者</td>
+				<td width="33%" class="head" align="center">字条内容</td>
+				<td width="30%" class="head" align="center">发送时间</td>
+			</tr>
+			<tr>
+				<td height="27"></td>
+				<td>琪琪</td>
+				<td>妈妈</td>
+				<td>愿你健康成长</td>
+				<td>2020年9月10日20:59:03</td>
+			</tr>
+			<tr>
+				<td height="27"></td>
+				<td>凯文</td>
+				<td>妈妈</td>
+				<td>愿你健康成长</td>
+				<td>2020年9月10日20:59:03</td>
+			</tr>
+			<tr>
+				<td height="27"></td>
+				<td>琪琪</td>
+				<td>妈妈</td>
+				<td>愿你健康成长</td>
+				<td>2020年9月10日20:59:03</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+<script src="../JQ/jquery-3.5.1.min.js"></script>
+<script>
+	$(function(){
+		$("td:parent").css("background-color","#E8F3D1");
+		$("td:empty").html("暂无内容");
+		$("td:contains('凯文')").css("color","red");
+		$("td.head").css("background-color","#999999")
+	})
+</script>
+<!--
+:contains(text) 匹配包含给定文本的元素    $("li:contains('DOM')")  匹配含有"DOM"文本内容的li元素
+:empty    匹配所有不包含子元素或者文本的空元素  $("td:empty")  匹配不包含子元素或者文本的单元格
+:has(selector)  匹配含有选择器所匹配元素的元素    $("td:has(p)")  匹配表格的单元格中含有<p>标记的单元格
+:parent    匹配含有子元素或者文本的元素     $("td:parent")   //匹配不为空的单元格，即在该单元格中还包括子元素或者文本
+-->

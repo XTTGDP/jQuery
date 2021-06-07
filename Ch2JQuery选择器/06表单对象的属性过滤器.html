@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form>
+			复选框1：<input type="checkbox" checked="checked" value="复选框1" />
+			复选框2：<input type="checkbox" checked="checked" value="复选框2" />
+			复选框3：<input type="checkbox" value="复选框1" />
+			不可用按钮：<input type="button" value="不可选按钮" disabled /><br />
+			下拉列表框:
+			<select onchange="selectVal()">
+				<option value="列表项1">列表项1</option>
+				<option value="列表项2">列表项2</option>
+				<option value="列表项3">列表项3</option>
+			</select>
+		</form>
+	</body>
+</html>
+<script src="../JQ/jquery-3.5.1.min.js"></script>
+<script>
+	$(function(){
+		$("input:checked").css({'background-color':'pink',
+							   'width':'50px',
+							   'height':'20px'});
+		$("input:disabled").val("我是不可用的");
+	})
+	function selectVal(){
+		alert($("select option:selected").val())
+	}
+</script>
+<!--
+:checked   匹配所有选中的被选中元素   $("input:checked")  匹配所有被选中的input元素
+:disabled  匹配所有不可用元素    $('input:disabled')  匹配所有不可用的input元素
+:enabled   匹配所有可用的元素    $('input:enabled')   匹配所有可用的input 元素
+:selected  匹配所有选中的option元素  $('select option:selected') 匹配所有被选中的选项元素
+-->

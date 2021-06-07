@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" value="显示的input元素" />
+		<input type="text" value="不显示的input元素" style="display: none;" />
+		<input type="hidden" value="我是隐藏域" />
+	</body>
+</html>
+<script src="../JQ/jquery-3.5.1.min.js"></script>
+<script>
+	$(function(){
+		var visibleVal = $("input:visible").val(); //获取显示的input的值
+		var hiddenVal1  = $("input:hidden:eq(0)").val();  //获取隐藏的文本框的值
+		var hiddenVal2 	= $("input:hidden:eq(1)").val();  //取得隐藏域的值
+		console.log(visibleVal);
+		console.log(hiddenVal1);
+		console.log(hiddenVal2);
+	})
+</script>
+<!--
+:visible   匹配所有可见元素
+:hidden    匹配所有不可见元素
+-->

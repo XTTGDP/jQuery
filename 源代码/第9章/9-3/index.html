@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>使用Nivo Slider插件实现图片的切换</title>
+    <link rel="stylesheet" href="nivo-slider/themes/default/default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="nivo-slider/themes/light/light.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="nivo-slider/themes/dark/dark.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="nivo-slider/themes/bar/bar.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="nivo-slider/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider(
+		{
+			controlNavThumbs:true,//图片导航
+			manualAdvance:false//自动播放
+		});
+    });
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="slider-wrapper theme-default">
+            <div id="slider" class="nivoSlider">
+                <img src="images/01.jpg" data-thumb="images/01.jpg" alt="" title="跨越编程障碍"/>
+                <img src="images/02.jpg" data-thumb="images/02.jpg" alt="" title="有了编程词典，学编程就这么简单！"/>
+                <img src="images/03.jpg" data-thumb="images/03.jpg" alt="" title="海量资源，轻松拥有"/>
+                <img src="images/04.jpg" data-thumb="images/04.jpg" alt="" title="#htmlcaption"/>
+            </div>
+            <div id="htmlcaption" class="nivo-html-caption">
+                <a href="http://www.mrbccd.com">编程词典互动服务社区</a>. 
+            </div>
+        </div>
+    </div>
+</body>
+</html>
